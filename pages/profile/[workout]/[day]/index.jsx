@@ -7,7 +7,7 @@ import { formatDistance } from "date-fns";
 import { BottomTabs, Seo } from "../../../../shared";
 import { Timestamp } from "firebase/firestore";
 import { workouts } from "../../../../constants/workouts";
-import { Header } from "../../../../components/profile";
+import { Header, HeaderTitle } from "../../../../components/profile";
 
 const Day = () => {
   const { collections, getCollection } = useFirestore();
@@ -22,8 +22,6 @@ const Day = () => {
   const ago = formatDistance(dateDone, new Date(), {
     addSuffix: true,
   });
-
-  console.log(progressions);
 
   useEffect(() => {
     if (collections.length === 0) {
@@ -54,6 +52,7 @@ const Day = () => {
         isBackIcon={true}
         svg={workouts[data.workout]}
       />
+      <HeaderTitle progressions={progressions} ago={ago} />
 
       <BottomTabs />
     </>
