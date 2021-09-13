@@ -1,3 +1,5 @@
+import { BridgesImages } from "../assets/bridges";
+
 export const directions = {
   "Pull Ups": [
     {
@@ -670,8 +672,8 @@ export const directions = {
         negative: "Keep going until your back is fully arced.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: BridgesImages[4][0],
+        negative: BridgesImages[4][1],
       },
       video: "https://youtu.be/JXHnTtE9NSk",
     },

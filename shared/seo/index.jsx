@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 
-const Seo = ({ description, title }) => {
+const Seo = ({ description, title, fullTitle }) => {
   const defaultDescription =
     description ||
     "Progressive calisthenics app based on the book; Convict Conditioning. Track your progress, and keep your focus as you master the Big 6 calisthenics movements!";
