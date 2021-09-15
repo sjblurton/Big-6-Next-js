@@ -39,7 +39,7 @@ const Hero = ({ auth }) => {
           It’s free to use, and focuses on the six calisthenics skills of:
         </Description>
         <List>{renderList()}</List>
-        <GoogleLogin auth={auth} />
+        {auth && <GoogleLogin auth={auth} />}
       </Content>
       <ImageContainer>
         <LogoSvg />

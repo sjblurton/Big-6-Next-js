@@ -12,7 +12,7 @@ export function withPublic(Component) {
       router.replace("/profile");
       return <ProfileLoader />;
     }
-    return <Component {...props} />;
+    return <Component auth={auth} {...props} />;
   };
 }
 

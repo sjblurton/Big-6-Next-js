@@ -7,7 +7,12 @@ import { formatDistance } from "date-fns";
 import { BottomTabs, Seo } from "../../../../shared";
 import { Timestamp } from "firebase/firestore";
 import { workouts } from "../../../../constants/workouts";
-import { Header, HeaderTitle } from "../../../../components/profile";
+import {
+  BarChart,
+  Comments,
+  Header,
+  HeaderTitle,
+} from "../../../../components/profile";
 
 const ACTIONS = {
   DAY_DATA_TO_STATE: "day-data-to-state",
@@ -83,7 +88,8 @@ const Day = () => {
         reps={totalReps}
         goal={goal}
       />
-
+      <BarChart reps={data.reps} level={data.level} />
+      <Comments data={data} />
       <BottomTabs />
     </>
   );

@@ -1,10 +1,13 @@
 import React from "react";
+import { useRouter } from "next/router";
 
 const HomeIcon = ({ isPage }) => {
+  const router = useRouter();
   isPage = isPage === "home";
   const color = !!isPage ? "#fff" : "#8C8CA2";
   return (
     <svg
+      onClick={() => router.push("/profile")}
       xmlns="http://www.w3.org/2000/svg"
       width="43"
       height="43"

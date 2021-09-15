@@ -13,25 +13,24 @@ function Progress({ goal, reps }) {
     timeout1Id.current = setInterval(() => {
       setCount(count + 1);
     }, 25);
-    if (count === percent) clearInterval(timeout1Id.current);
-    return () => {
-      clearInterval(timeout1Id.current);
-    };
-  }, [count, percent]);
-
-  useEffect(() => {
     timeout2Id.current = setInterval(() => {
       setDashOffset(dashOffset - 1);
     }, 2);
     if (Math.round(dashOffset) === Math.round(dashOffsetTarget))
       clearInterval(timeout2Id.current);
+    if (count === percent) clearInterval(timeout1Id.current);
     return () => {
       clearInterval(timeout2Id.current);
+      clearInterval(timeout1Id.current);
     };
-  }, [dashOffsetTarget, dashOffset]);
+  }, [count, percent, dashOffsetTarget, dashOffset]);
 
   return (
-    <svg width="120" height="120">
+    <svg
+      width="120"
+      height="120"
+      style={{ background: "#34425D", borderRadius: "50%" }}
+    >
       <defs>
         <linearGradient id="linear" x1="0%" y1="0%" x2="80%" y2="20%">
           <stop offset="0%" stopColor="#f12711" />

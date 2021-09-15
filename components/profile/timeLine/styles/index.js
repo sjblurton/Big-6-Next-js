@@ -49,6 +49,6 @@ export const InfoButton = styled(RoundButton)`
   position: fixed;
   width: 60px;
   height: 60px;
-  bottom: 120px;
-  right: 30px;
+  bottom: 80px;
+  right: 16px;
 `;

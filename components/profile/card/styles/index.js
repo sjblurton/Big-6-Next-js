@@ -8,7 +8,6 @@ export const Wrapper = styled.article`
   height: 110px;
   margin: 0 auto 16px auto;
   display: flex;
-  display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 8px;

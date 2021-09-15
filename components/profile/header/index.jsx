@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { ArrowLeftIcon } from "../../../assets/icons";
 import DotsMenu from "../../../assets/icons/dotsMenu";
 import LogoSvg from "../../../assets/logos/logo";
 import { IconContainer, Title, Wrapper, WorkoutSvg } from "./styles";
+import Dropdown from "./menu";
 
 const Header = ({ title, isBackIcon, svg }) => {
+  const [menuOpen, setMenuOpen] = useState(false);
   const router = useRouter();
   return (
     <Wrapper>
+      {menuOpen && <Dropdown setMenuOpen={setMenuOpen} />}
       {isBackIcon && (
         <IconContainer onClick={() => router.back()}>
           <ArrowLeftIcon />
@@ -18,7 +21,7 @@ const Header = ({ title, isBackIcon, svg }) => {
       {!isBackIcon && <LogoSvg />}
       <Title isBackIcon={isBackIcon}>{title}</Title>
       {svg && <WorkoutSvg>{svg}</WorkoutSvg>}
-      <DotsMenu />
+      <DotsMenu setMenuOpen={setMenuOpen} />
     </Wrapper>
   );
 };
