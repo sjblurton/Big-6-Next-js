@@ -2,8 +2,7 @@ import React from "react";
 import { Progress } from "../../../shared";
 import { Subtitle, TitleContainer, Title, LevelBall, Content } from "./styles";
 
-const HeaderTitle = ({ progressions, ago }) => {
-  console.log(progressions);
+const HeaderTitle = ({ progressions, ago, reps, goal }) => {
   return (
     <Content>
       <TitleContainer>
@@ -13,7 +12,7 @@ const HeaderTitle = ({ progressions, ago }) => {
           <Subtitle>Lv: {progressions.level}</Subtitle>
         </LevelBall>
       </TitleContainer>
-      <Progress goal={50} reps={40} />
+      <Progress goal={goal} reps={reps} />
     </Content>
   );
 };

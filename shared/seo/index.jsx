@@ -87,6 +87,7 @@ const Seo = ({ description, title, fullTitle }) => {
         href="favicon-128.png"
         sizes="128x128"
       />
+      <link rel="shortcut icon" href="/favicon.ico" />
       <meta name="application-name" content="&nbsp;" />
       <meta name="msapplication-TileColor" content="#34425D" />
       <meta name="msapplication-TileImage" content="mstile-144x144.png" />

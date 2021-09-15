@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useReducer } from "react";
 import { useRouter } from "next/router";
 import useFirestore from "../../../../src/hooks/firestore";
 import { withProtected } from "../../../../src/hooks/routes";
@@ -9,35 +9,60 @@ import { Timestamp } from "firebase/firestore";
 import { workouts } from "../../../../constants/workouts";
 import { Header, HeaderTitle } from "../../../../components/profile";
 
+const ACTIONS = {
+  DAY_DATA_TO_STATE: "day-data-to-state",
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case ACTIONS.DAY_DATA_TO_STATE:
+      const data = action.payload.collections.filter(
+        (item) => item.docId === state.filter
+      );
+      const progressions = directions[data[0].workout][data[0].level - 1];
+      const goal = progressions["progressions"][
+        progressions["progressions"].length - 1
+      ].reduce((acc, x) => acc * x, 1);
+      const date = new Date(data[0].date?.toDate());
+      const totalReps = data[0].reps.reduce((acc, x) => acc + x, 0);
+      return {
+        ...state,
+        data: data[0],
+        totalReps: totalReps,
+        progressions: directions[data[0].workout][data[0].level - 1],
+        goal: goal,
+        ago: formatDistance(date, new Date(), {
+          addSuffix: true,
+        }),
+      };
+
+    default:
+      return state;
+  }
+};
+
 const Day = () => {
   const { collections, getCollection } = useFirestore();
-  const [data, setData] = useState(collections);
-  const [progressions, setProgressions] = useState({});
-  const [date, setDate] = useState(
-    data?.date?.toDate() || Timestamp.now().toDate()
-  );
   const router = useRouter();
   const { day } = router.query;
-  const dateDone = new Date(date);
-  const ago = formatDistance(dateDone, new Date(), {
-    addSuffix: true,
-  });
+  const initialState = {
+    data: {},
+    progressions: {},
+    filter: day,
+    date: new Date(Timestamp.now().toDate()),
+    ago: "",
+  };
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const { data, progressions, ago, goal, totalReps } = state;
 
   useEffect(() => {
-    if (collections.length === 0) {
-      getCollection();
-    }
-    // eslint-disable-next-line
-  }, []);
-
-  useEffect(() => {
-    if (collections.length > 0) {
-      const data = collections.find((workout) => workout.docId === day);
-      setData(data);
-      setProgressions(directions[data.workout][data.level - 1]);
-      setDate(data.date?.toDate());
-    }
-  }, [collections, day]);
+    collections.length === 0 && getCollection();
+    collections.length > 0 &&
+      dispatch({
+        type: ACTIONS.DAY_DATA_TO_STATE,
+        payload: { collections },
+      });
+  }, [collections, getCollection]);
 
   return (
     <>
@@ -52,7 +77,12 @@ const Day = () => {
         isBackIcon={true}
         svg={workouts[data.workout]}
       />
-      <HeaderTitle progressions={progressions} ago={ago} />
+      <HeaderTitle
+        progressions={progressions}
+        ago={ago}
+        reps={totalReps}
+        goal={goal}
+      />
 
       <BottomTabs />
     </>
