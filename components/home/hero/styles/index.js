@@ -59,11 +59,10 @@ export const List = styled.ul`
   color: ${(props) => props.theme.color.accent};
 `;
 export const ListItem = styled.li`
-  ${(props) => props.theme.text.body}
-  margin-bottom: 6px;
-  & :last-of-type {
-    margin-bottom: 0px;
-  }
+  ${(props) => props.theme.text.button}
+  padding: 16px;
+  color: #f5af19;
+  cursor: pointer;
 `;
 export const Signup = styled.p`
   margin-bottom: 4px;

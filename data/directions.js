@@ -383,7 +383,7 @@ export const directions = {
       video: "https://youtu.be/hYnmRO37SRQ",
     },
   ],
-  PushUps: [
+  "Push Ups": [
     {
       level: 1,
       name: "Wall Push Up",

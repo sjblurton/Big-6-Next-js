@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import {
   Content,
   Description,
@@ -22,7 +23,11 @@ const Hero = ({ auth }) => {
       "Leg Raises",
       "Bridges",
     ];
-    return workouts.map((workout, i) => <ListItem key={i}>{workout}</ListItem>);
+    return workouts.map((workout, i) => (
+      <Link key={i} href={`/directions?workout=${workout}&level=0`}>
+        <ListItem>{workout}</ListItem>
+      </Link>
+    ));
   };
 
   return (

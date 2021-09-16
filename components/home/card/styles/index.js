@@ -51,6 +51,8 @@ export const Content = styled.div`
 
 export const Title = styled.h3`
   ${(props) => props.theme.text.h3};
+  color: #f5af19;
+  cursor: pointer;
   margin-bottom: 16px;
 `;
 
@@ -66,9 +68,8 @@ export const List = styled.ul`
   list-style-type: none;
 `;
 export const ListItem = styled.li`
-  ${(props) => props.theme.text.body}
-  margin-bottom: 6px;
-  & :last-of-type {
-    margin-bottom: 0px;
-  }
+  ${(props) => props.theme.text.button}
+  padding: 16px;
+  color: #f5af19;
+  cursor: pointer;
 `;

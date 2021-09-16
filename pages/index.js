@@ -7,13 +7,19 @@ const Home = ({ auth }) => {
   return (
     <>
       <Seo title="Join" />
-      <main>
+      <Wrapper>
         <Hero auth={auth} />
         {content.map((workout, i) => (
           <Card key={i} data={workout} />
         ))}
-      </main>
+      </Wrapper>
     </>
   );
 };
 export default withPublic(Home);
+
+import styled from "styled-components";
+
+const Wrapper = styled.main`
+  margin-bottom: 16px;
+`;
