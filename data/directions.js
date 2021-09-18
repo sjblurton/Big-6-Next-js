@@ -1,4 +1,4 @@
-import { BridgesImages } from "../assets/bridges";
+import * as Images from "../assets/instructions";
 
 export const directions = {
   "Pull Ups": [
@@ -11,13 +11,14 @@ export const directions = {
         [3, 40],
       ],
       directions: {
-        positive: "",
+        positive:
+          "Stand close to the wall, tips of the toes should be 10cm to 20cm away.",
 
-        negative: "",
+        negative: "slowly lower yourself until elbows are straight.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.PullUps[0][0],
+        negative: Images.PullUps[0][1],
       },
       video: "https://youtu.be/F8kIJMeqCMs",
     },
@@ -30,13 +31,13 @@ export const directions = {
         [3, 30],
       ],
       directions: {
-        positive: "",
+        positive: "Keep your body tense, and locked straight.",
 
-        negative: "",
+        negative: "Smoothly pull yourself up up to the bar.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.PullUps[1][0],
+        negative: Images.PullUps[1][1],
       },
       video: "https://youtu.be/YN0vvoqssfw",
     },
@@ -49,13 +50,15 @@ export const directions = {
         [3, 20],
       ],
       directions: {
-        positive: "",
+        positive:
+          "When working with the bar keep your shoulders good and tight",
 
-        negative: "",
+        negative:
+          "Smoothly pull yourself up, using your straightened legs to assist you.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.PullUps[2][0],
+        negative: Images.PullUps[2][1],
       },
       video: "https://youtu.be/58ss6OF4fmQ",
     },
@@ -68,12 +71,12 @@ export const directions = {
         [2, 15],
       ],
       directions: {
-        positive: "",
-        negative: "",
+        positive: "Your upper arms should be parallel to the the floor.",
+        negative: "Allow your elbows to travel forwards if it right for you.",
       },
       images: {
-        positive: "",
-        negative: "",
+        negative: Images.PullUps[3][1],
+        positive: Images.PullUps[3][0],
       },
       video: "https://youtu.be/vsRRJGHhKnA",
     },
@@ -86,13 +89,15 @@ export const directions = {
         [2, 10],
       ],
       directions: {
-        positive: "",
+        positive:
+          "Retain a very slight bend in the elbows to take the stress off the arm joints.",
 
-        negative: "",
+        negative:
+          "Bend at the elbows and shoulders until your chin passes over the bar.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.PullUps[4][0],
+        negative: Images.PullUps[4][1],
       },
       video: "https://youtu.be/fCHcb4MB1FM",
     },
@@ -105,13 +110,14 @@ export const directions = {
         [2, 10],
       ],
       directions: {
-        positive: "",
+        positive:
+          "Your hands should be next to each other, 4cm apart from the thumbs.",
 
-        negative: "",
+        negative: "Try to minimize leg movement during the set",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.PullUps[5][0],
+        negative: Images.PullUps[5][1],
       },
       video: "https://youtu.be/Om_3c0jozTc",
     },
@@ -124,13 +130,15 @@ export const directions = {
         [2, 9],
       ],
       directions: {
-        positive: "",
+        positive:
+          "A side-on or underhand grip will be more comfortable, than the overhand version.",
 
-        negative: "",
+        negative:
+          "Bend at the elbows and shoulders to smoothly pull your chin up over the bar.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.PullUps[6][0],
+        negative: Images.PullUps[6][1],
       },
       video: "https://youtu.be/fCHcb4MB1FM",
     },
@@ -143,13 +151,14 @@ export const directions = {
         [2, 8],
       ],
       directions: {
-        positive: "",
+        positive:
+          "The elbow should be at a right angle, with your upper arm parallel to the ground.",
 
-        negative: "",
+        negative: "Smoothly pull your chin over the bar.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.PullUps[7][0],
+        negative: Images.PullUps[7][1],
       },
       video: "https://youtu.be/ve0EIQdRLag",
     },
@@ -162,13 +171,15 @@ export const directions = {
         [2, 7],
       ],
       directions: {
-        positive: "",
+        positive:
+          "With your opposite hand, grab the towel as low as possible-around eye level.",
 
-        negative: "",
+        negative:
+          "Release the towel, and continue pulling yourself up with just one arm until your chin is over the bar.",
       },
       images: {
-        positive: "",
-        negative: "",
+        negative: Images.PullUps[8][1],
+        positive: Images.PullUps[8][0],
       },
       video: "https://youtu.be/W8DBEewoDmY",
     },
@@ -181,13 +192,15 @@ export const directions = {
         [2, 6],
       ],
       directions: {
-        positive: "",
+        positive:
+          "Your working arm should be virtually straight, with just a little kink in it to take the stress off the joints.",
 
-        negative: "",
+        negative:
+          "Bend at the elbow, and shoulder to pull your body up with as little momentum as possible.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.PullUps[9][0],
+        negative: Images.PullUps[9][1],
       },
       video: "https://youtu.be/2tHTY6ZKzkc",
     },
@@ -207,8 +220,8 @@ export const directions = {
         negative: "",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.Handstands[0][0],
+        negative: Images.Handstands[0][1],
       },
       video: "https://youtu.be/tYX-9RQyiJA",
     },
@@ -226,8 +239,8 @@ export const directions = {
         negative: "",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.Handstands[1][0],
+        negative: Images.Handstands[1][1],
       },
       video: "https://youtu.be/oLGMF0yilWQ",
     },
@@ -245,8 +258,8 @@ export const directions = {
         negative: "",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.Handstands[2][0],
+        negative: Images.Handstands[2][1],
       },
       video: "https://youtu.be/gI4vnrDAxEQ",
     },
@@ -263,8 +276,8 @@ export const directions = {
         negative: "",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.Handstands[3][0],
+        negative: Images.Handstands[3][1],
       },
       video: "https://youtu.be/a9WJRuue0YA",
     },
@@ -282,8 +295,8 @@ export const directions = {
         negative: "",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.Handstands[4][0],
+        negative: Images.Handstands[4][1],
       },
       video: "https://youtu.be/S27I9QGHtzo",
     },
@@ -301,8 +314,8 @@ export const directions = {
         negative: "",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.Handstands[5][0],
+        negative: Images.Handstands[5][1],
       },
       video: "https://youtu.be/vWv3P2-zvRQ",
     },
@@ -320,8 +333,8 @@ export const directions = {
         negative: "",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.Handstands[6][0],
+        negative: Images.Handstands[6][1],
       },
       video: "https://youtu.be/bzuf-4law2k",
     },
@@ -339,8 +352,8 @@ export const directions = {
         negative: "",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.Handstands[7][0],
+        negative: Images.Handstands[7][1],
       },
       video: "",
     },
@@ -358,8 +371,8 @@ export const directions = {
         negative: "",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.Handstands[8][0],
+        negative: Images.Handstands[8][1],
       },
       video: "https://youtu.be/3IJMlCWovF8",
     },
@@ -377,8 +390,8 @@ export const directions = {
         negative: "",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.Handstands[9][0],
+        negative: Images.Handstands[9][1],
       },
       video: "https://youtu.be/hYnmRO37SRQ",
     },
@@ -398,8 +411,8 @@ export const directions = {
         negative: "",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.PushUps[0][0],
+        negative: Images.PushUps[0][1],
       },
       video: "https://youtu.be/N5C9NUHZ20U",
     },
@@ -417,8 +430,8 @@ export const directions = {
         negative: "",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.PushUps[1][0],
+        negative: Images.PushUps[1][1],
       },
       video: "https://youtu.be/Gv8y_prZBZY",
     },
@@ -436,8 +449,8 @@ export const directions = {
         negative: "",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.PushUps[2][0],
+        negative: Images.PushUps[2][1],
       },
       video: "https://youtu.be/NyzxeqY6CR8",
     },
@@ -454,8 +467,8 @@ export const directions = {
         negative: "",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.PushUps[3][0],
+        negative: Images.PushUps[3][1],
       },
       video: "https://youtu.be/bGuUODcwnHA",
     },
@@ -473,8 +486,8 @@ export const directions = {
         negative: "",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.PushUps[4][0],
+        negative: Images.PushUps[4][1],
       },
       video: "https://youtu.be/1QJICN6udbs",
     },
@@ -492,8 +505,8 @@ export const directions = {
         negative: "",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.PushUps[5][0],
+        negative: Images.PushUps[5][1],
       },
       video: "https://youtu.be/3-1vRVuWgBc",
     },
@@ -511,8 +524,8 @@ export const directions = {
         negative: "",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.PushUps[6][0],
+        negative: Images.PushUps[6][1],
       },
       video: "https://youtu.be/o1abTRdwpUs",
     },
@@ -530,8 +543,8 @@ export const directions = {
         negative: "",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.PushUps[7][0],
+        negative: Images.PushUps[7][1],
       },
       video: "https://youtu.be/63077t3I4Zc",
     },
@@ -549,8 +562,8 @@ export const directions = {
         negative: "",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.PushUps[8][0],
+        negative: Images.PushUps[8][1],
       },
       video: "https://youtu.be/Hwq5zdb-owA",
     },
@@ -568,8 +581,8 @@ export const directions = {
         negative: "",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.PushUps[9][0],
+        negative: Images.PushUps[9][1],
       },
       video: "https://youtu.be/ReKZry7JQEQ",
     },
@@ -591,8 +604,8 @@ export const directions = {
           "Your thighs, trunk and torso should form a straight line, with no sagging of the hips.",
       },
       images: {
-        positive: "../assets/images/bridges/l1pos.inline.svg",
-        negative: "../assets/images/bridges/l1neg.inline.svg",
+        positive: Images.Bridges[0][0],
+        negative: Images.Bridges[0][1],
       },
       video: "https://youtu.be/JQFddjAFWZw",
     },
@@ -612,8 +625,8 @@ export const directions = {
           "push your hips upwards until your legs and torso form a straight line.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.Bridges[1][0],
+        negative: Images.Bridges[1][1],
       },
       video: "https://youtu.be/gkTVDJHHIZ0",
     },
@@ -633,8 +646,8 @@ export const directions = {
           "the arms don't need to be fully extended, the elbows will be bent.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.Bridges[2][0],
+        negative: Images.Bridges[2][1],
       },
       video: "https://youtu.be/o9yKAjvUQlM",
     },
@@ -652,8 +665,8 @@ export const directions = {
         negative: "Hold the full bridge at the top.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.Bridges[3][0],
+        negative: Images.Bridges[3][1],
       },
       video: "https://youtu.be/BIq3sAZAekg",
     },
@@ -672,8 +685,8 @@ export const directions = {
         negative: "Keep going until your back is fully arced.",
       },
       images: {
-        positive: BridgesImages[4][0],
-        negative: BridgesImages[4][1],
+        positive: Images.Bridges[4][0],
+        negative: Images.Bridges[4][1],
       },
       video: "https://youtu.be/JXHnTtE9NSk",
     },
@@ -693,8 +706,8 @@ export const directions = {
           "Allow the head to tilt backwards between the arms, so that you can look at the wall behind you.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.Bridges[5][0],
+        negative: Images.Bridges[5][1],
       },
       video: "https://www.youtube.com/watch?v=qnU9LoO5Cyg",
     },
@@ -714,8 +727,8 @@ export const directions = {
           "Keep bending backwards as you walk down the wall with your hands. Until the hands are flat on the floor.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.Bridges[6][0],
+        negative: Images.Bridges[6][1],
       },
       video: "https://youtu.be/LD1h45ArqcY",
     },
@@ -735,8 +748,8 @@ export const directions = {
           "Push gently away from the wall until you are standing totally clear from the it.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.Bridges[7][0],
+        negative: Images.Bridges[7][1],
       },
       video: "https://youtu.be/sc_hsEM7xnA",
     },
@@ -756,8 +769,8 @@ export const directions = {
           "Extend your arms as you keep the movement going, until your palms are resting on the floor.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.Bridges[8][0],
+        negative: Images.Bridges[8][1],
       },
       video: "https://youtu.be/tGv50Whxouk",
     },
@@ -777,8 +790,8 @@ export const directions = {
           "Finally, pull the hips in until you are standing straight with hands by your sides.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.Bridges[9][0],
+        negative: Images.Bridges[9][1],
       },
       video: "https://www.youtube.com/watch?v=wZnixqvk-24",
     },
@@ -800,8 +813,8 @@ export const directions = {
           "Keeping your torso as upright as possible, bend at the hips and knees until your knees touch your forehead.",
       },
       images: {
-        positive: "",
-        negative: "",
+        negative: Images.Squats[0][1],
+        positive: Images.Squats[0][0],
       },
       video:
         "https://www.youtube.com/watch?v=a-JNXY_hnSs&list=PLZsDuSZDsUoYOuq2RgSqZSV-11BdHYViN&index=4",
@@ -822,8 +835,8 @@ export const directions = {
           "Bend at the knees and hips until your hamstrings reach your calves, and you can not go any further.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.Squats[1][0],
+        negative: Images.Squats[1][1],
       },
       video:
         "https://www.youtube.com/watch?v=QhyRsrPOkoY&list=PLZsDuSZDsUoYOuq2RgSqZSV-11BdHYViN&index=5",
@@ -844,8 +857,8 @@ export const directions = {
           "Slowly lower yourself down by bending at the hips and knees, keeping your back as straight as possible.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.Squats[2][0],
+        negative: Images.Squats[2][1],
       },
       video:
         "https://www.youtube.com/watch?v=cLQS5mZmXN0&list=PLZsDuSZDsUoYOuq2RgSqZSV-11BdHYViN&index=6",
@@ -866,8 +879,8 @@ export const directions = {
           "Bend at the hips and knees until your knees are angled at ninety degrees.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.Squats[3][0],
+        negative: Images.Squats[3][1],
       },
       video:
         "https://www.youtube.com/watch?v=tIHNkW0nGFg&list=PLZsDuSZDsUoYOuq2RgSqZSV-11BdHYViN&index=7",
@@ -888,8 +901,8 @@ export const directions = {
           "Continue descending at a controlled speed until the backs of your thighs are resting against your calves.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.Squats[4][0],
+        negative: Images.Squats[4][1],
       },
       video:
         "https://www.youtube.com/watch?v=S3bNmmxkh_k&list=PLZsDuSZDsUoYOuq2RgSqZSV-11BdHYViN&index=8",
@@ -910,8 +923,8 @@ export const directions = {
           "To prevent yourself from tipping backwards you may have to flex your shins.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.Squats[5][0],
+        negative: Images.Squats[5][1],
       },
       video:
         "https://www.youtube.com/watch?v=MiNzsa9MIpI&list=PLZsDuSZDsUoYOuq2RgSqZSV-11BdHYViN&index=9",
@@ -932,8 +945,8 @@ export const directions = {
           "Bend at the knees and hips until seated keeping the other foot off the floor.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.Squats[6][0],
+        negative: Images.Squats[6][1],
       },
       video: "",
     },
@@ -953,8 +966,8 @@ export const directions = {
           "Keep the back flat and the heel of your supported leg on the floor at all times.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.Squats[7][0],
+        negative: Images.Squats[7][1],
       },
       video: "https://www.youtube.com/watch?v=dZON2MCVdfg",
     },
@@ -974,8 +987,8 @@ export const directions = {
           "Press down on the basketball to help you over the first few centimeters.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.Squats[8][0],
+        negative: Images.Squats[8][1],
       },
       video:
         "https://www.youtube.com/watch?v=9Mcs9M1HORQ&list=PLZsDuSZDsUoYOuq2RgSqZSV-11BdHYViN&index=12",
@@ -995,8 +1008,8 @@ export const directions = {
           "Descend smoothly, until the back of the thigh of your supporting leg rests against the calf.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.Squats[9][0],
+        negative: Images.Squats[9][1],
       },
       video:
         "https://www.youtube.com/watch?v=fNCTWGl1Q8A&list=PLZsDuSZDsUoYOuq2RgSqZSV-11BdHYViN&index=13",
@@ -1019,8 +1032,8 @@ export const directions = {
           "By the time the motion is complete, you should have exhaled fully.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.LegRaises[0][0],
+        negative: Images.LegRaises[0][1],
       },
       video: "https://youtu.be/N8k-SeCkR0s",
     },
@@ -1040,8 +1053,8 @@ export const directions = {
           "Keep the knees at a right angle throughout and exhale as you go.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.LegRaises[1][0],
+        negative: Images.LegRaises[1][1],
       },
       video: "https://youtu.be/98ragSP4gC8",
     },
@@ -1061,8 +1074,8 @@ export const directions = {
           "As you move, the angle of the knee should not change: it must remain 'Locked' iin the same position.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.LegRaises[2][0],
+        negative: Images.LegRaises[2][1],
       },
       video: "https://youtu.be/qq69_MifXAc",
     },
@@ -1081,8 +1094,8 @@ export const directions = {
           "Lower your legs, keeping them perfectly straight until they are just off the floor.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.LegRaises[3][0],
+        negative: Images.LegRaises[3][1],
       },
       video: "https://youtu.be/esoUyks3PZM",
     },
@@ -1102,8 +1115,8 @@ export const directions = {
           "Keeping your legs locked, raise your feet until they are directly above your pelvis.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.LegRaises[4][0],
+        negative: Images.LegRaises[4][1],
       },
       video: "https://youtu.be/hav89ezKkPA",
     },
@@ -1123,8 +1136,8 @@ export const directions = {
           "Bring your knees up smoothly until they are level with your pelvis, and your knees are at a right angle.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.LegRaises[5][0],
+        negative: Images.LegRaises[5][1],
       },
       video: "https://youtu.be/t2MU4Q4V3Xk",
     },
@@ -1144,8 +1157,8 @@ export const directions = {
           "Only move at the hips: keep your knees angle 'locked' into place.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.LegRaises[6][0],
+        negative: Images.LegRaises[6][1],
       },
       video: "https://youtu.be/CtFMjDbU0P4",
     },
@@ -1164,8 +1177,8 @@ export const directions = {
           "lower your legs, until fully extended keeping them locked straight.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.LegRaises[7][0],
+        negative: Images.LegRaises[7][1],
       },
       video: "https://youtu.be/GsZGSxGhcWk",
     },
@@ -1185,8 +1198,8 @@ export const directions = {
           "Smoothly raise your legs until they are parallel with the floor.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.LegRaises[8][0],
+        negative: Images.LegRaises[8][1],
       },
       video: "https://youtu.be/y4cCwSpScPo",
     },
@@ -1205,8 +1218,8 @@ export const directions = {
           "Exhale as your legs raise, blowing all the air you can out of your lungs so that the abdomen is fully contracted.",
       },
       images: {
-        positive: "",
-        negative: "",
+        positive: Images.LegRaises[9][0],
+        negative: Images.LegRaises[9][1],
       },
       video: "https://youtu.be/7jI6fDNY_yM",
     },

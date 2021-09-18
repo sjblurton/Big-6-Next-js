@@ -1,92 +1,20 @@
-import React, { useReducer } from "react";
+import React from "react";
 import { Seo } from "../shared";
-import { useRouter } from "next/router";
-import { directions } from "../data/directions";
 import { workouts } from "../constants/workouts";
-import Select from "react-select";
-
-
-const ACTIONS = {
-  UPDATE_WORKOUT: "update-workout",
-  UPDATE_LEVEL: "update-level",
-};
-
-const reducer = (state, action) => {
-  console.log(action);
-  switch (action.type) {
-    // case ACTIONS.UPDATE_WORKOUT:
-    //   return {
-    //     ...state,
-    //     data: directions[action.payload.workout][state.level],
-    //     workout: action.payload.workout,
-    //   };
-    // case ACTIONS.UPDATE_LEVEL:
-    //   return {
-    //     ...state,
-    //     data: directions[state.workout][action.payload.level],
-    //     level: action.payload.level,
-    //   };
-    default:
-      return state;
-  }
-};
-const workoutOptions = [
-  { value: "Push Ups", label: "Push Ups" },
-  { value: "Pull Ups", label: "Pull Ups" },
-  { value: "Handstand Push Ups", label: "Handstand Push Ups" },
-  { value: "Squats", label: "Squats" },
-  { value: "Leg Raises", label: "Leg Raises" },
-  { value: "Bridges", label: "Bridges" },
-];
-const levelOptions = [
-  { value: "0", label: "1" },
-  { value: "1", label: "2" },
-  { value: "2", label: "3" },
-  { value: "3", label: "4" },
-  { value: "4", label: "5" },
-  { value: "5", label: "6" },
-  { value: "6", label: "7" },
-  { value: "7", label: "8" },
-  { value: "8", label: "9" },
-  { value: "9", label: "10" },
-];
-
-const customStyles = {
-  option: (provided, state) => ({
-    ...provided,
-    borderBottom: "1px dotted pink",
-    color: state.isSelected ? "red" : "blue",
-    padding: 20,
-  }),
-  control: () => ({
-    // none of react-select's styles are passed to <Control />
-    width: 60,
-  }),
-  container: (provided, state) => ({
-    ...provided,
-    width: 60,
-    display: "inline-block",
-  }),
-  singleValue: (provided, state) => {
-    const opacity = state.isDisabled ? 0.5 : 1;
-    const transition = "opacity 300ms";
-
-    return { ...provided, opacity, transition };
-  },
-};
 
 const standards = ["Beginner", "Intermediate", "Progression"];
 
 const Directions = () => {
-  const { query } = useRouter();
-  const initialState = {
-    data: directions[query.workout][query.level],
-    workout: query.workout,
-    level: query.level,
-  };
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useDirectionsReducer();
   const { data, workout } = state;
-  const { name, level, directions: instructions, progressions, video } = data;
+  const {
+    name,
+    directions: instructions,
+    progressions,
+    video,
+    images,
+    level,
+  } = data;
 
   const renderProgressions = () => {
     return progressions.map((progress, i) => {
@@ -98,31 +26,43 @@ const Directions = () => {
     });
   };
 
-  const handleChange = (e) => {
-    console.log(e);
-  };
   return (
     <>
       <Seo title={name} />
       <Header title={workout} isBackIcon={true} svg={workouts[workout]} />
       <Wrapper>
         <TextContainer>
+          <button onClick={() => dispatch({ type: ACTIONS.DECREMENT_WORKOUT })}>
+            back
+          </button>
           <Title>{workout} </Title>
+          <button onClick={() => dispatch({ type: ACTIONS.INCREMENT_WORKOUT })}>
+            forward
+          </button>
+
           <SubTitle>
             Level:
-            <span style={{ width: "20px" }}>
-              <Select
-                styles={customStyles}
-                value={level}
-                onChange={handleChange}
-                options={levelOptions}
-              />
-            </span>
+            <button onClick={() => dispatch({ type: ACTIONS.DECREMENT_LEVEL })}>
+              back
+            </button>
             {level}
+            <button onClick={() => dispatch({ type: ACTIONS.INCREMENT_LEVEL })}>
+              forward
+            </button>
           </SubTitle>
           <SubTitle>{name}</SubTitle>
           {renderProgressions()}
         </TextContainer>
+        <Card>
+          <CardTitle>Negative</CardTitle>
+          <SVGContainer>{images.negative}</SVGContainer>
+          <CardText>{instructions.negative}</CardText>
+        </Card>
+        <Card>
+          <CardTitle>Positive</CardTitle>
+          <SVGContainer>{images.positive}</SVGContainer>
+          <CardText>{instructions.positive}</CardText>
+        </Card>
       </Wrapper>
     </>
   );
@@ -132,6 +72,7 @@ export default Directions;
 
 import styled from "styled-components";
 import { Header } from "../components/profile";
+import useDirectionsReducer from "../src/hooks/useDirectionsReducer";
 
 const Wrapper = styled.section`
   display: flex;
@@ -143,3 +84,13 @@ const TextContainer = styled.article``;
 const Title = styled.h1``;
 
 const SubTitle = styled.h2``;
+
+const Card = styled.div`
+  background: ${(props) => props.theme.color.bgLight};
+`;
+
+const CardTitle = styled.h3``;
+
+const SVGContainer = styled.div``;
+
+const CardText = styled.p``;
