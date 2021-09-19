@@ -1,8 +1,8 @@
+import { useEffect, useReducer } from "react";
 import { useRouter } from "next/router";
-import React, { useReducer } from "react";
 import { directions } from "../../data/directions";
 
-const ACTIONS = {
+export const ACTIONS = {
   INCREMENT_WORKOUT: "increment-workout",
   DECREMENT_WORKOUT: "decrement-workout",
   INCREMENT_LEVEL: "increment-level",
@@ -13,7 +13,6 @@ const reducer = (state, action) => {
   let level = state.level;
   let workout = state.workout;
   let index = big6.indexOf(workout);
-
   switch (action.type) {
     case ACTIONS.INCREMENT_LEVEL:
       state.level !== 9 ? level++ : (level = 0);
@@ -74,13 +73,19 @@ const big6 = [
 
 const useDirectionsReducer = () => {
   const { query } = useRouter();
-  console.log(query);
+  const router = useRouter();
   const initialState = {
     data: directions[query.workout][query.level],
     workout: query.workout,
     level: query.level,
   };
+
   const [state, dispatch] = useReducer(reducer, initialState);
+  useEffect(() => {
+    router.push(
+      `/directions?workout=${state.workout}&level=${state.level}&name=${state.data.name}`
+    );
+  }, [state]);
 
   return [state, dispatch];
 };

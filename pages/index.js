@@ -8,7 +8,7 @@ const Home = ({ auth }) => {
     <>
       <Seo title="Join" />
       <Wrapper>
-        <Hero auth={auth} />
+        <Hero auth={auth} data={content} />
         {content.map((workout, i) => (
           <Card key={i} data={workout} />
         ))}

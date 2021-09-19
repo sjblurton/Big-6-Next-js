@@ -13,18 +13,21 @@ import {
 import LogoSvg from "../../../assets/logos/logo";
 import GoogleLogin from "../loginButton";
 
-const Hero = ({ auth }) => {
+const Hero = ({ auth, data }) => {
   const renderList = () => {
     const workouts = [
-      "Push Ups",
       "Pull Ups",
-      "Handstand Push Ups",
+      "Push Ups",
       "Squats",
       "Leg Raises",
+      "Handstand Push Ups",
       "Bridges",
     ];
     return workouts.map((workout, i) => (
-      <Link key={i} href={`/directions?workout=${workout}&level=0`}>
+      <Link
+        key={i}
+        href={`/directions?workout=${workout}&level=0&name=${data[i].level[0]}`}
+      >
         <ListItem>{workout}</ListItem>
       </Link>
     ));

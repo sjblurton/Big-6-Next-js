@@ -5,7 +5,7 @@ import { Wrapper, Menu } from "./styles";
 
 const Dropdown = ({ setMenuOpen }) => {
   const router = useRouter();
-  const { logout } = useAuth();
+  const { logout, user } = useAuth();
 
   const stopBubble = (e) => {
     e.stopPropagation();
@@ -14,11 +14,17 @@ const Dropdown = ({ setMenuOpen }) => {
     <Wrapper onClick={() => setMenuOpen(false)} name="wrapper">
       <Menu onClick={stopBubble}>
         <ul>
-          <li onClick={() => router.push("/profile")}>Profile</li>
-          <li>History</li>
-          <li>Routine</li>
+          {!user && <li onClick={() => router.push("/")}>Home</li>}
+          {user && (
+            <>
+              <li onClick={() => router.push("/profile")}>Profile</li>
+              <li>History</li>
+              <li>Routine</li>
+            </>
+          )}
           <li>Timer</li>
-          <li onClick={() => logout()}>Logout</li>
+          {user && <li onClick={() => logout()}>Logout</li>}
+          {!user && <li onClick={() => router.push("/")}>Log in</li>}
         </ul>
       </Menu>
     </Wrapper>

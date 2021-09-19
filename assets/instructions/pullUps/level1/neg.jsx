@@ -65,7 +65,7 @@ function L1Neg() {
       </g>
       <defs>
         <linearGradient
-          id="L1Pos_paint0_linear"
+          id="L1Neg_paint0_linear"
           x1="62.581"
           x2="87.827"
           y1="139.898"
@@ -76,7 +76,7 @@ function L1Neg() {
           <stop offset="1" stopColor="#fff" stopOpacity="0"></stop>
         </linearGradient>
         <linearGradient
-          id="L1Pos_paint1_linear"
+          id="L1Neg_paint1_linear"
           x1="29.552"
           x2="100.573"
           y1="77.595"
@@ -87,7 +87,7 @@ function L1Neg() {
           <stop offset="1" stopColor="#fff" stopOpacity="0"></stop>
         </linearGradient>
         <linearGradient
-          id="L1Pos_paint2_linear"
+          id="L1Neg_paint2_linear"
           x1="61.387"
           x2="80.965"
           y1="17.678"
@@ -98,7 +98,7 @@ function L1Neg() {
           <stop offset="1" stopColor="#fff" stopOpacity="0"></stop>
         </linearGradient>
         <linearGradient
-          id="L1Pos_paint3_linear"
+          id="L1Neg_paint3_linear"
           x1="56.08"
           x2="79.659"
           y1="53.128"
@@ -109,7 +109,7 @@ function L1Neg() {
           <stop offset="1" stopColor="#fff" stopOpacity="0"></stop>
         </linearGradient>
         <linearGradient
-          id="L1Pos_paint4_linear"
+          id="L1Neg_paint4_linear"
           x1="44.385"
           x2="79.857"
           y1="2.752"
@@ -120,7 +120,7 @@ function L1Neg() {
           <stop offset="1" stopColor="#fff" stopOpacity="0"></stop>
         </linearGradient>
         <linearGradient
-          id="L1Pos_paint5_linear"
+          id="L1Neg_paint5_linear"
           x1="22.76"
           x2="93.608"
           y1="35.583"
@@ -130,7 +130,7 @@ function L1Neg() {
           <stop stopColor="#fff"></stop>
           <stop offset="1" stopColor="#fff" stopOpacity="0"></stop>
         </linearGradient>
-        <clipPath id="L1Pos_clip0">
+        <clipPath id="L1Neg_clip0">
           <path fill="#fff" d="M0 0H150V150H0z"></path>
         </clipPath>
       </defs>

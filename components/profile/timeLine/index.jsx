@@ -1,7 +1,9 @@
 import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { ArrowRightIcon, InfoIcon } from "../../../assets/icons";
 import { formatDistance } from "date-fns";
+import { directions } from "../../../data/directions";
 import {
   DayContainer,
   InfoButton,
@@ -12,6 +14,8 @@ import {
 } from "./styles";
 
 const TimeLine = ({ days }) => {
+  console.log(days);
+  const router = useRouter();
   const renderDays = () => {
     return days.map((day) => {
       const { date, level, reps, docId, workout } = day;
@@ -41,7 +45,15 @@ const TimeLine = ({ days }) => {
     <Wrapper>
       {renderDays()}
       <Line />
-      <InfoButton>
+      <InfoButton
+        onClick={() =>
+          router.push(
+            `/directions?workout=${days[0].workout}&level=${
+              days[0].level - 1
+            }&name=${directions[days[0].workout][days[0].level - 1]}`
+          )
+        }
+      >
         <InfoIcon />
       </InfoButton>
     </Wrapper>

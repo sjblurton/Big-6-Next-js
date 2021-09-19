@@ -77,7 +77,7 @@ function L2Pos() {
       </g>
       <defs>
         <linearGradient
-          id="L2Neg_paint0_linear"
+          id="L2Pos_paint0_linear"
           x1="108.534"
           x2="136.798"
           y1="114.942"
@@ -88,7 +88,7 @@ function L2Pos() {
           <stop offset="1" stopColor="#fff" stopOpacity="0"></stop>
         </linearGradient>
         <linearGradient
-          id="L2Neg_paint1_linear"
+          id="L2Pos_paint1_linear"
           x1="79.183"
           x2="92.223"
           y1="140.409"
@@ -99,7 +99,7 @@ function L2Pos() {
           <stop offset="1" stopColor="#fff" stopOpacity="0"></stop>
         </linearGradient>
         <linearGradient
-          id="L2Neg_paint2_linear"
+          id="L2Pos_paint2_linear"
           x1="87.21"
           x2="135.349"
           y1="118.729"
@@ -110,7 +110,7 @@ function L2Pos() {
           <stop offset="1" stopColor="#fff" stopOpacity="0"></stop>
         </linearGradient>
         <linearGradient
-          id="L2Neg_paint3_linear"
+          id="L2Pos_paint3_linear"
           x1="-8.96"
           x2="94.772"
           y1="103.074"
@@ -121,7 +121,7 @@ function L2Pos() {
           <stop offset="1" stopColor="#fff" stopOpacity="0"></stop>
         </linearGradient>
         <linearGradient
-          id="L2Neg_paint4_linear"
+          id="L2Pos_paint4_linear"
           x1="-0.961"
           x2="17.252"
           y1="131.685"
@@ -132,7 +132,7 @@ function L2Pos() {
           <stop offset="1" stopColor="#fff" stopOpacity="0"></stop>
         </linearGradient>
         <linearGradient
-          id="L2Neg_paint5_linear"
+          id="L2Pos_paint5_linear"
           x1="-3.907"
           x2="39.239"
           y1="135.789"
@@ -143,7 +143,7 @@ function L2Pos() {
           <stop offset="1" stopColor="#fff" stopOpacity="0"></stop>
         </linearGradient>
         <linearGradient
-          id="L2Neg_paint6_linear"
+          id="L2Pos_paint6_linear"
           x1="-26.501"
           x2="49.184"
           y1="139.953"
@@ -154,7 +154,7 @@ function L2Pos() {
           <stop offset="1" stopColor="#fff" stopOpacity="0"></stop>
         </linearGradient>
         <linearGradient
-          id="L2Neg_paint7_linear"
+          id="L2Pos_paint7_linear"
           x1="-29.024"
           x2="10.689"
           y1="125.13"
@@ -164,7 +164,7 @@ function L2Pos() {
           <stop stopColor="#fff"></stop>
           <stop offset="1" stopColor="#fff" stopOpacity="0"></stop>
         </linearGradient>
-        <clipPath id="L2Neg_clip0">
+        <clipPath id="L2Pos_clip0">
           <path fill="#fff" d="M0 0H150V150H0z"></path>
         </clipPath>
       </defs>

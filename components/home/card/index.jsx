@@ -17,14 +17,17 @@ const Card = ({ data, ...restProps }) => {
       <ImageContainer>{image}</ImageContainer>
 
       <Content>
-        <Link href={`/directions?workout=${title}&level=0`}>
+        <Link href={`/directions?workout=${title}&level=0&name=${level[0]}`}>
           <Title>{title}</Title>
         </Link>
 
         <Description>{description}</Description>
         <List>
           {level.map((item, i) => (
-            <Link key={i} href={`/directions?workout=${title}&level=${i}`}>
+            <Link
+              key={i}
+              href={`/directions?workout=${title}&level=${i}&name=${level[i]}`}
+            >
               <ListItem workout={title}>{item}</ListItem>
             </Link>
           ))}

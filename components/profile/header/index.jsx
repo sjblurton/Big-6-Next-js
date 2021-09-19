@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { ArrowLeftIcon } from "../../../assets/icons";
 import DotsMenu from "../../../assets/icons/dotsMenu";
 import LogoSvg from "../../../assets/logos/logo";
-import { IconContainer, Title, Wrapper, WorkoutSvg } from "./styles";
+import { IconContainer, Title, Wrapper, WorkoutSvg, Icon } from "./styles";
 import Dropdown from "./menu";
 
 const Header = ({ title, isBackIcon, svg }) => {
@@ -13,9 +13,13 @@ const Header = ({ title, isBackIcon, svg }) => {
     <Wrapper>
       {menuOpen && <Dropdown setMenuOpen={setMenuOpen} />}
       {isBackIcon && (
-        <IconContainer onClick={() => router.back()}>
-          <ArrowLeftIcon />
-          <LogoSvg />
+        <IconContainer>
+          <Icon onClick={() => router.back()}>
+            <ArrowLeftIcon />
+          </Icon>
+          <Icon onClick={() => router.push("/")}>
+            <LogoSvg o />
+          </Icon>
         </IconContainer>
       )}
       {!isBackIcon && <LogoSvg />}
