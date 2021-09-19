@@ -14,7 +14,6 @@ export const Title = styled.h1`
   ${(props) => props.theme.text.h2}
   z-index: 2;
   align-self: ${(props) => (props?.isBackIcon ? "flex-start" : "center")};
-  margin-top: 8px;
 `;
 export const IconContainer = styled.div`
   display: flex;
@@ -43,14 +42,10 @@ export const WorkoutSvg = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  margin-bottom: 8px;
+  padding-bottom: 6px;
 
   & svg {
     max-width: 80px;
     max-height: 80px;
   }
-`;
-export const Icon = styled.div`
-  width: 100%;
-  cursor: pointer;
 `;

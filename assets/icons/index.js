@@ -7,5 +7,3 @@ export { default as WatchIcon } from "./watch";
 export { default as ArrowLeftIcon } from "./arrowLeft";
 export { default as ArrowRightIcon } from "./arrowRight";
 export { default as InfoIcon } from "./infoIcon";
-export { default as EastIcon } from "./east";
-export { default as WestIcon } from "./west";
