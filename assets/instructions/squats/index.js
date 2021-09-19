@@ -19,7 +19,7 @@ import L9neg from "./level9/neg";
 import L10pos from "./level10/pos";
 import L10neg from "./level10/neg";
 
-export const SquatsImages = [
+export const Squats = [
   [<L1pos key="pos" />, <L1neg key="neg" />],
   [<L2pos key="pos" />, <L2neg key="neg" />],
   [<L3pos key="pos" />, <L3neg key="neg" />],
