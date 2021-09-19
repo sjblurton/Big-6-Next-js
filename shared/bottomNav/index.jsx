@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import {
   AddIcon,
   CalendarIcon,
@@ -19,9 +20,11 @@ const BottomTabs = ({ isPage, ...restProps }) => {
     <Wrapper {...restProps}>
       <Separator />
       <ButtonContainer>
-        <IconContainer>
-          <HomeIcon isPage={isPage} />
-        </IconContainer>
+        <Link href="/">
+          <IconContainer>
+            <HomeIcon isPage={isPage} />
+          </IconContainer>
+        </Link>
         <IconContainer>
           <ClipboardIcon isPage={isPage} />
         </IconContainer>
@@ -31,9 +34,11 @@ const BottomTabs = ({ isPage, ...restProps }) => {
         <IconContainer>
           <CalendarIcon isPage={isPage} />
         </IconContainer>
-        <IconContainer>
-          <WatchIcon isPage={isPage} />
-        </IconContainer>
+        <Link href="/timer">
+          <IconContainer>
+            <WatchIcon isPage={isPage} />
+          </IconContainer>
+        </Link>
       </ButtonContainer>
     </Wrapper>
   );

@@ -3,9 +3,10 @@ import styled from "styled-components";
 export const Wrapper = styled.section`
   display: flex;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 200px);
   justify-content: center;
   align-items: center;
+  margin-bottom: 72px;
 `;
 export const Content = styled.div`
   display: flex;
@@ -13,6 +14,7 @@ export const Content = styled.div`
   height: 80vh;
   align-items: center;
   justify-content: space-evenly;
+  height: 100%;
 `;
 export const Clock = styled.h1`
   ${(props) => props.theme.text.h1}
