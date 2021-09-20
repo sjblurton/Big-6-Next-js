@@ -69,7 +69,9 @@ const Timer = () => {
         <Go isRunning={isRunning} onClick={handleClick}>
           {isRunning ? "STOP" : "GO"}
         </Go>
-        <Reset onClick={handleClick}>Reset</Reset>
+        {!isRunning && timer !== 0 && getReady !== 5 && (
+          <Reset onClick={handleClick}>Reset</Reset>
+        )}
         {isRunning && getReady > 0 && (
           <BeReadyIn>Be ready in {getReady}</BeReadyIn>
         )}

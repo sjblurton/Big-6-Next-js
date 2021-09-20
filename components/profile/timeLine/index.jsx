@@ -14,7 +14,6 @@ import {
 } from "./styles";
 
 const TimeLine = ({ days }) => {
-  console.log(days);
   const router = useRouter();
   const renderDays = () => {
     return days.map((day) => {
@@ -31,10 +30,13 @@ const TimeLine = ({ days }) => {
           </Link>
           <TextContainer>
             <p>{`${ago},`}</p>
-            <p>{`Lv ${level}, ${reps.reduce(
-              (acc, num) => acc + num,
-              0
-            )} reps`}</p>
+
+            <p>
+              {router.route === "/history" &&
+                `${directions[workout][level - 1].name}
+                  , `}
+              {`Lv ${level}, ${reps.reduce((acc, num) => acc + num, 0)} reps`}
+            </p>
           </TextContainer>
         </DayContainer>
       );
@@ -45,17 +47,19 @@ const TimeLine = ({ days }) => {
     <Wrapper>
       {renderDays()}
       <Line />
-      <InfoButton
-        onClick={() =>
-          router.push(
-            `/directions?workout=${days[0].workout}&level=${
-              days[0].level - 1
-            }&name=${directions[days[0].workout][days[0].level - 1]}`
-          )
-        }
-      >
-        <InfoIcon />
-      </InfoButton>
+      {router.route !== "/history" && (
+        <InfoButton
+          onClick={() =>
+            router.push(
+              `/directions?workout=${days[0].workout}&level=${
+                days[0].level - 1
+              }&name=${directions[days[0].workout][days[0].level - 1].name}`
+            )
+          }
+        >
+          <InfoIcon />
+        </InfoButton>
+      )}
     </Wrapper>
   );
 };

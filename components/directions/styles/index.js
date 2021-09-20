@@ -21,6 +21,7 @@ export const SubTitle = styled.h2`
   ${(props) => props.theme.text.h3}
   text-align: center;
 `;
+
 export const ProgressionText = styled.div`
   width: 80%;
   margin-inline: auto;

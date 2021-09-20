@@ -5,6 +5,7 @@ import {
   PushUp,
   Squat,
   LegRaise,
+  Rest,
 } from "../assets/mainSvg";
 
 export const workouts = {
@@ -14,4 +15,14 @@ export const workouts = {
   "Leg Raises": <LegRaise />,
   Handstands: <Handstand />,
   Bridges: <Bridge />,
+  Rest: <Rest />,
 };
+
+export const big6 = [
+  "Pull Ups",
+  "Push Ups",
+  "Squats",
+  "Leg Raises",
+  "Handstands",
+  "Bridges",
+];

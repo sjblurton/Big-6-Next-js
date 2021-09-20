@@ -1,6 +1,7 @@
 import { useEffect, useReducer } from "react";
 import { useRouter } from "next/router";
 import { directions } from "../../data/directions";
+import { big6 } from "../../constants/workouts";
 
 export const ACTIONS = {
   INCREMENT_WORKOUT: "increment-workout",
@@ -61,15 +62,6 @@ const reducer = (state, action) => {
       return state;
   }
 };
-
-const big6 = [
-  "Pull Ups",
-  "Push Ups",
-  "Squats",
-  "Leg Raises",
-  "Handstands",
-  "Bridges",
-];
 
 const useDirectionsReducer = () => {
   const { query } = useRouter();

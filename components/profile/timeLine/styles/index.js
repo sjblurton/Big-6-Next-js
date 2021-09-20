@@ -34,6 +34,7 @@ export const TextContainer = styled.div`
   justify-content: flex-start;
   margin-left: 16px;
 `;
+
 export const RoundButton = styled.div`
   width: 42px;
   height: 42px;

@@ -25,15 +25,19 @@ const BottomTabs = ({ isPage, ...restProps }) => {
             <HomeIcon isPage={isPage} />
           </IconContainer>
         </Link>
-        <IconContainer>
-          <ClipboardIcon isPage={isPage} />
-        </IconContainer>
+        <Link href="/history">
+          <IconContainer>
+            <ClipboardIcon isPage={isPage} />
+          </IconContainer>
+        </Link>
         <AddIconContainer>
           <AddIcon isPage={isPage} />
         </AddIconContainer>
-        <IconContainer>
-          <CalendarIcon isPage={isPage} />
-        </IconContainer>
+        <Link href="/routines">
+          <IconContainer>
+            <CalendarIcon isPage={isPage} />
+          </IconContainer>
+        </Link>
         <Link href="/timer">
           <IconContainer>
             <WatchIcon isPage={isPage} />
