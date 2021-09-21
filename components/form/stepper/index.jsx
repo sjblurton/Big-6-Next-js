@@ -1,12 +1,9 @@
 import React, { Children, useState } from "react";
-import {
-  Formik,
-  Form,
-} from "formik";
+import { Formik, Form } from "formik";
 
 const FormikStepper = ({ children, ...props }) => {
   const childrenArray = Children.toArray(children);
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(2);
   const currentChild = childrenArray[step];
 
   return (

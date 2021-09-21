@@ -1,7 +1,10 @@
 import React from "react";
 import { Field } from "formik";
+import { FormikStepper } from "../";
 import { object, string, number, array, date } from "yup";
 import { big6, workouts } from "../../../constants/workouts";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import {
   CustomBtn,
   Label,
@@ -11,7 +14,6 @@ import {
   Title,
   Wrapper,
 } from "../styles";
-import { FormikStepper } from "../";
 
 const ExerciseForm = () => {
   return (
@@ -31,13 +33,13 @@ const ExerciseForm = () => {
             .max(3)
             .ensure()
             .of(number().required().positive().integer().min(1)),
-          date: date(),
+          date: date().required().nullable(),
         })}
         initialValues={{
           exercise: "",
           level: null,
           reps: [],
-          date: new Date(),
+          date: null,
           comments: "",
         }}
         onSubmit={async (values) => {
@@ -71,6 +73,21 @@ const ExerciseForm = () => {
           <Field name="reps[1]" type="number" value="" label="reps[1]" />
           <Label name="reps[2]">Set 3</Label>
           <Field name="reps[2]" type="number" value="" label="reps[2]" />
+          <Label name="date">date</Label>
+          <Field name="date">
+            {({ form, field }) => {
+              const { setFieldValue } = form;
+              const { value } = field;
+              return (
+                <DatePicker
+                  id="date"
+                  {...field}
+                  selected={value}
+                  onChange={(val) => setFieldValue("date", val)}
+                />
+              );
+            }}
+          </Field>
           <Label name="comments">Comments</Label>
           <Field name="comments" as="textarea" value="" label="comments" />
 
