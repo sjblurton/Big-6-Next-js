@@ -1,12 +1,12 @@
 import React from "react";
-import { ExerciseForm } from "../../components/form";
+import { FormikContainer } from "../../components/form";
 
 const Add = () => {
-  return (
-    <div>
-      <ExerciseForm />
-    </div>
-  );
+	return (
+		<div>
+			<FormikContainer />
+		</div>
+	);
 };
 
 export default Add;
