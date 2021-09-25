@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Reset, Wrapper } from "./styles";
 
-const Submit = ({ children, formik, ...restProps }) => {
+const Submit = ({ children, formik, setStep, ...restProps }) => {
 	return (
 		<Wrapper>
 			<Button
@@ -11,7 +11,9 @@ const Submit = ({ children, formik, ...restProps }) => {
 			>
 				{children}
 			</Button>
-			<Reset type="reset">Reset</Reset>
+			<Reset onClick={() => setStep(0)} type="reset">
+				Reset
+			</Reset>
 		</Wrapper>
 	);
 };

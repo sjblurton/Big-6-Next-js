@@ -5,16 +5,14 @@ import {
 	CONTROLS,
 	initialValues,
 	validationSchema,
-	onSubmit,
 	FormikStepper,
 } from "..";
 
-const FormikContainer = (props) => {
+const FormikContainer = () => {
 	return (
 		<FormikStepper
 			initialValues={initialValues}
 			validationSchema={validationSchema}
-			onSubmit={onSubmit}
 		>
 			<FormikControl
 				control={CONTROLS.EXERCISE_RADIO}
