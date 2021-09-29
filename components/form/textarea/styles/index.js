@@ -3,7 +3,9 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
 	display: flex;
 	flex-direction: column;
-	width: 300px;
+	width: 100%;
+	min-width: 280px;
+	max-width: 300px;
 	margin-inline: auto;
 
 	& textarea {

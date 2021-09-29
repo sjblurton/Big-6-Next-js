@@ -3,10 +3,12 @@ import {
 	addDoc,
 	Timestamp,
 	getFirestore,
+	deleteDoc,
 } from "firebase/firestore";
 
+const db = getFirestore();
+
 const addDocs = async ({ auth, values }) => {
-	const db = getFirestore();
 	const colName = auth.user.uid;
 	const doc = {
 		workout: values.exercise,
@@ -15,7 +17,6 @@ const addDocs = async ({ auth, values }) => {
 		reps: values.reps,
 		comments: values.comments,
 	};
-	console.log("from addDocs: ", doc, colName);
 
 	const docRef = await addDoc(collection(db, colName), {
 		...doc,
@@ -24,3 +25,5 @@ const addDocs = async ({ auth, values }) => {
 };
 
 export default addDocs;
+
+export const deleteDocument = () => {};

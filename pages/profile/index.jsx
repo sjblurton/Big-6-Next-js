@@ -8,34 +8,35 @@ import { withProtected } from "../../src/hooks/routes";
 import BottomTabs from "../../shared/bottomNav";
 
 const Profile = () => {
-  const [latest, setLatest] = useState([]);
-  const { collections, error, getCollection, loading } = useFirestore();
+	const [latest, setLatest] = useState([]);
+	const { collections, error, loading } = useFirestore();
 
-  useEffect(() => {
-    collections.length === 0 && getCollection();
+	const latestList = () => {
+		let array = [];
+		const upToDate = collections.filter((value) => {
+			if (!array.includes(value.workout)) {
+				array.push(value.workout);
+				return true;
+			}
+			return false;
+		});
+		setLatest(upToDate);
+	};
 
-    if (collections.length > 0) {
-      let array = [];
-      const upToDate = collections.filter((item) => {
-        if (!array.includes(item.workout)) {
-          array.push(item.workout);
-          return true;
-        }
-      });
-      setLatest(upToDate);
-    }
-  }, [collections, getCollection]);
+	useEffect(() => {
+		latestList();
+	}, [collections]);
 
-  return (
-    <>
-      <Seo title="Profile" />
-      <Header title="Profile" />
-      {loading && !error && <ProfileLoader />}
-      {latest && latest.map((item) => <Card key={item.docId} workout={item} />)}
-      {error && <SmallText>{error}</SmallText>}
-      <BottomTabs isPage="home" />
-    </>
-  );
+	return (
+		<>
+			<Seo title="Profile" />
+			<Header title="Profile" />
+			{loading && !error && <ProfileLoader />}
+			{latest && latest.map((item) => <Card key={item.docId} workout={item} />)}
+			{error && <SmallText>{error}</SmallText>}
+			<BottomTabs isPage="home" />
+		</>
+	);
 };
 
 export default withProtected(Profile);

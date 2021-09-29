@@ -23,18 +23,18 @@ export const RadioBtn = styled.span`
 `;
 
 export const RadioButtons = styled.div`
-	max-width: 360px;
+	width: 100%;
 	margin: 0 auto;
 	text-align: center;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
 	align-content: space-evenly;
-	height: 80vh;
 	max-height: 600px;
 `;
 
 export const CustomBtn = styled.label`
+	margin: 4px;
 	& input {
 		display: none;
 		&:checked {

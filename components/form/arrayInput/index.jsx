@@ -29,7 +29,7 @@ const ArrayInput = ({ name, type, ...restProps }) => {
 								</BlockContainer>
 							))}
 							{reps.length < 3 && (
-								<Button type="button" onClick={() => push("")}>
+								<Button type="button" onClick={() => push(null)}>
 									+
 								</Button>
 							)}

@@ -4,6 +4,7 @@ import addDocs from "../../../src/hooks/addData";
 export const validationSchema = object({
 	exercise: string().required("Required."),
 	level: number("Numbers only.")
+		.nullable(true)
 		.required("Required.")
 		.positive("Must be positive.")
 		.integer("Must be a round number.")
@@ -29,15 +30,16 @@ export const validationSchema = object({
 export const initialValues = {
 	exercise: "",
 	level: null,
-	reps: [0],
+	reps: [null],
 	date: new Date(),
 	comments: "",
 };
 
-export const onSubmit = async (values, helpers, auth) => {
+export const onSubmit = async (values, helpers, auth, setStep, router) => {
 	helpers.setSubmitting(true);
 	await addDocs({ values, auth });
-	// console.log(helpers);
-	// console.log("Form data", values);
-	// helpers.resetForm(initialValues);
+	helpers.setSubmitting(false);
+	helpers.resetForm(initialValues);
+	setStep(0);
+	router.push("/profile");
 };

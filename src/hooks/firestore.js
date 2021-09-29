@@ -1,37 +1,60 @@
-import React, { createContext, useContext, useState } from "react";
-import { FirestoreService } from "../service/firestoreService";
-import { Timestamp } from "firebase/firestore";
+import React, { createContext, useContext, useEffect, useState } from "react";
+import {
+	getFirestore,
+	collection,
+	query,
+	orderBy,
+	limit,
+	onSnapshot,
+	Timestamp,
+	enableIndexedDbPersistence,
+} from "firebase/firestore";
 import useAuth from "./auth";
 
 const firestoreContext = createContext();
 
 export default function useFirestore() {
-  return useContext(firestoreContext);
+	return useContext(firestoreContext);
 }
 
 export function FirestoreProvider(props) {
-  const [loading, setLoading] = useState(false);
-  const [collections, setCollections] = useState([]);
-  const [error, setError] = useState("");
-  const { user } = useAuth();
-  const emptyItem = {
-    workout: "Pull Ups",
-    date: Timestamp.now(),
-    level: 1,
-    reps: [2, 0],
-  };
+	const db = getFirestore();
+	const [loading, setLoading] = useState(false);
+	const [collections, setCollections] = useState([]);
+	const [error, setError] = useState("");
+	const { user } = useAuth();
 
-  const getCollection = async () => {
-    setLoading(true);
-    const { dataError, collections } = await FirestoreService.getCollection(
-      user
-    );
-    setCollections(collections ?? [emptyItem]);
-    setError(dataError ?? "");
-    setLoading(false);
-  };
+	useEffect(() => {
+		if (!collections) {
+			enableIndexedDbPersistence(db).catch((err) => {
+				if (err.code == "failed-precondition") {
+					console.log("failed-precondition");
+				} else if (err.code == "unimplemented") {
+					console.log("unimplemented");
+				}
+			});
+		}
+		listenForData();
+	}, []);
 
-  const value = { collections, error, getCollection, loading };
+	const listenForData = async () => {
+		setLoading(true);
+		const q = query(
+			collection(db, user.uid),
+			orderBy("date", "desc"),
+			limit(72)
+		);
+		const unsubscribe = await onSnapshot(q, (querySnapshot) => {
+			const documents = [];
+			querySnapshot.forEach((doc) => {
+				documents.push({ docId: doc.id, ...doc.data() });
+			});
+			setCollections(documents);
+			setLoading(false);
+		});
+	};
 
-  return <firestoreContext.Provider value={value} {...props} />;
+	const value = { collections, error, loading };
+
+	return <firestoreContext.Provider value={value} {...props} />;
 }

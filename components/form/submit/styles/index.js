@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 export const Button = styled.button`
 	border: none;
 	background: #f18701;
-	width: 300px;
+	width: 100%;
 	display: block;
 	padding-block: 8px;
 	border-radius: 8px;

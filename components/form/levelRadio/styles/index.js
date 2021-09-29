@@ -6,6 +6,7 @@ export const RadioBtn = styled.span`
 	align-items: center;
 	width: 80px;
 	height: 80px;
+	margin: 4px;
 	border-radius: 50%;
 	text-align: center;
 	background-color: ${(props) => props.theme.color.bgLight};
@@ -21,7 +22,6 @@ export const RadioButtons = styled.div`
 	flex-wrap: wrap;
 	justify-content: space-evenly;
 	align-content: space-evenly;
-	height: 80vh;
 `;
 export const CustomBtn = styled.label`
 	& input {
