@@ -1,9 +1,13 @@
 import React, { Children, useState } from "react";
 import { Formik, Form } from "formik";
 import { onSubmit, Submit } from "..";
-import { Button } from "../submit/styles";
+import Link from "next/link";
+import { Button, Reset } from "../submit/styles";
+import { FormHeader, StepIndicator } from "./styles";
+import useAuth from "../../../src/hooks/auth";
 
 const FormikStepper = ({ children, ...props }) => {
+	const auth = useAuth();
 	const childrenArray = Children.toArray(children);
 	const [step, setStep] = useState(0);
 	const currentChild = childrenArray[step];
@@ -21,7 +25,9 @@ const FormikStepper = ({ children, ...props }) => {
 		<Formik
 			{...props}
 			onSubmit={async (values, helpers) => {
-				isLastStep() ? await onSubmit(values, helpers) : setStep(step + 1);
+				isLastStep()
+					? await onSubmit(values, helpers, auth)
+					: setStep(step + 1);
 			}}
 		>
 			{(formik) => (
@@ -29,12 +35,26 @@ const FormikStepper = ({ children, ...props }) => {
 					style={{
 						display: "flex",
 						flexDirection: "column",
-						height: "100vh",
 						justifyContent: "space-evenly",
+						minHeight: "100vh",
+						width: "300px",
+						marginInline: "auto",
+						marginBlock: "12px",
 					}}
 					formik={formik}
 					autoComplete="off"
 				>
+					<FormHeader>
+						<StepIndicator>
+							<p>{formik.values.exercise || "exercise"}</p>
+						</StepIndicator>
+						<StepIndicator>
+							<p>Level: {Number(formik.values.level) + 1 || "?"}</p>
+						</StepIndicator>
+						<StepIndicator>
+							<p>Reps</p>
+						</StepIndicator>
+					</FormHeader>
 					{currentChild}
 
 					{isLastStep() ? (
@@ -42,13 +62,18 @@ const FormikStepper = ({ children, ...props }) => {
 							Submit
 						</Submit>
 					) : (
-						<Button
-							disabled={!stepIsValid(step, formik)}
-							type="button"
-							onClick={() => setStep(step + 1)}
-						>
-							Next
-						</Button>
+						<>
+							<Button
+								disabled={!stepIsValid(step, formik)}
+								type="button"
+								onClick={() => setStep(step + 1)}
+							>
+								Next
+							</Button>
+							<Link href="/profile">
+								<Reset type="reset">Cancel</Reset>
+							</Link>
+						</>
 					)}
 
 					{isFirstStep() ? null : (
