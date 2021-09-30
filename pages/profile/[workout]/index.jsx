@@ -1,10 +1,9 @@
 import React, { useEffect, useReducer } from "react";
 import { workouts } from "../../../constants/workouts";
 import { useRouter } from "next/router";
-import useFirestore from "../../../src/hooks/firestore";
-import { withProtected } from "../../../src/hooks/routes";
+import { withProtected, useFirestore } from "../../../src/hooks";
 import { Seo } from "../../../shared";
-import { LineChart, Header, TimeLine } from "../../../components/profile";
+import { LineChart, Header, TimeLine } from "../../../src/components/profile";
 import BottomTabs from "../../../shared/bottomNav";
 
 const ACTIONS = {

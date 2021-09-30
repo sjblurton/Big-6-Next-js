@@ -1,6 +1,6 @@
 import React from "react";
 import { Seo } from "../../shared";
-import { FormikContainer } from "../../components/form";
+import { FormikContainer } from "../../src/components/form";
 
 const Add = () => {
 	return (

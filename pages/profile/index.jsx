@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { ProfileLoader } from "../../components/loading";
-import { Card, Header } from "../../components/profile";
-import { SmallText } from "../../components/profile/card/styles";
+import { ProfileLoader } from "../../src/components/loading";
+import { Card, Header } from "../../src/components/profile";
+import { SmallText } from "../../src/components/profile/card/styles";
 import { Seo } from "../../shared";
-import useFirestore from "../../src/hooks/firestore";
-import { withProtected } from "../../src/hooks/routes";
+import { withProtected, useFirestore } from "../../src/hooks";
 import BottomTabs from "../../shared/bottomNav";
 
 const Profile = () => {

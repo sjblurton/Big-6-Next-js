@@ -1,7 +1,6 @@
 import React, { useEffect, useReducer, useState } from "react";
 import { useRouter } from "next/router";
-import useFirestore from "../../../../src/hooks/firestore";
-import { withProtected } from "../../../../src/hooks/routes";
+import { withProtected, useFirestore } from "../../../../src/hooks";
 import { directions } from "../../../../data/directions";
 import { formatDistance } from "date-fns";
 import { BottomTabs, Seo } from "../../../../shared";
@@ -12,8 +11,8 @@ import {
 	Comments,
 	Header,
 	HeaderTitle,
-} from "../../../../components/profile";
-import DeleteModal from "../../../../components/modal";
+} from "../../../../src/components/profile";
+import DeleteModal from "../../../../src/components/modal";
 
 const ACTIONS = {
 	DAY_DATA_TO_STATE: "day-data-to-state",
