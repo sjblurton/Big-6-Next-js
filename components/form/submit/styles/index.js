@@ -7,14 +7,14 @@ export const Wrapper = styled.div`
 `;
 export const Button = styled.button`
 	border: none;
-	background: #f18701;
+	background: ${(props) => props.theme.color.orange};
 	width: 100%;
 	display: block;
 	padding-block: 8px;
 	border-radius: 8px;
 	font-weight: bold;
 	text-transform: uppercase;
-	color: #fff;
+	color: ${(props) => props.theme.color.white};
 	margin-inline: auto;
 	margin-block: 8px;
 	&:disabled {
@@ -24,5 +24,5 @@ export const Button = styled.button`
 	}
 `;
 export const Reset = styled(Button)`
-	background-color: #ea2b2b;
+	background-color: ${(props) => props.theme.color.error};
 `;

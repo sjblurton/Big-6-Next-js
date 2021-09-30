@@ -20,14 +20,6 @@ export const DayContainer = styled.div`
 		margin-top: 0;
 	}
 `;
-export const Line = styled.div`
-	position: absolute;
-	left: 14px;
-	top: 5px;
-	bottom: 5px;
-	width: 4px;
-	background: ${(props) => props.theme.color.white};
-`;
 
 export const TextContainer = styled.div`
 	display: flex;
@@ -45,6 +37,7 @@ export const RoundButton = styled.div`
 	justify-content: center;
 	align-items: center;
 	z-index: 1;
+	cursor: pointer;
 `;
 
 export const InfoButton = styled(RoundButton)`
@@ -53,4 +46,5 @@ export const InfoButton = styled(RoundButton)`
 	height: 60px;
 	bottom: 80px;
 	right: 16px;
+	cursor: pointer;
 `;

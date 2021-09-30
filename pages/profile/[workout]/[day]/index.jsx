@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import { useRouter } from "next/router";
 import useFirestore from "../../../../src/hooks/firestore";
 import { withProtected } from "../../../../src/hooks/routes";
@@ -13,6 +13,7 @@ import {
 	Header,
 	HeaderTitle,
 } from "../../../../components/profile";
+import DeleteModal from "../../../../components/modal";
 
 const ACTIONS = {
 	DAY_DATA_TO_STATE: "day-data-to-state",
@@ -47,6 +48,7 @@ const reducer = (state, action) => {
 };
 
 const Day = () => {
+	const [openModal, setOpenModal] = useState(false);
 	const { collections } = useFirestore();
 	const router = useRouter();
 	const { day } = router.query;
@@ -80,11 +82,13 @@ const Day = () => {
 				isBackIcon={true}
 				svg={workouts[data.workout]}
 			/>
+			{openModal && <DeleteModal data={data} setOpenModal={setOpenModal} />}
 			<HeaderTitle
 				progressions={progressions}
 				ago={ago}
 				reps={totalReps}
 				goal={goal}
+				setOpenModal={setOpenModal}
 			/>
 			<BarChart reps={data.reps} level={data.level} />
 			<Comments data={data} />

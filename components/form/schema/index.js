@@ -1,5 +1,5 @@
 import { object, string, number, array, date } from "yup";
-import addDocs from "../../../src/hooks/addData";
+import { FirestoreService } from "../../../src/service/firestoreService";
 
 export const validationSchema = object({
 	exercise: string().required("Required."),
@@ -21,7 +21,7 @@ export const validationSchema = object({
 				.integer("must be whole number.")
 				.min(1, "Log at least one rep.")
 				.max(1000, "I do not believe you. Max 1000 reps")
-				.nullable(false)
+				.nullable(true)
 				.required("Required.")
 		),
 	date: date("Must be a valid date.").required("Required.").nullable(),
@@ -37,7 +37,7 @@ export const initialValues = {
 
 export const onSubmit = async (values, helpers, auth, setStep, router) => {
 	helpers.setSubmitting(true);
-	await addDocs({ values, auth });
+	await FirestoreService.addDocs({ values, auth });
 	helpers.setSubmitting(false);
 	helpers.resetForm(initialValues);
 	setStep(0);
