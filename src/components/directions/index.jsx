@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer } from "react";
 import { EastIcon, WestIcon } from "../../../assets/icons";
-import { ACTIONS, directionsReducer } from "../../reducers/directionsReducer";
+import { ACTIONS, directionsReducer } from "../../reducers/";
 import { directions } from "../../../data/directions";
 import Card from "./card";
 import {

@@ -1,6 +1,7 @@
 import React from "react";
-import { Seo } from "../../shared";
+import { Seo } from "../../src/shared";
 import { FormikContainer } from "../../src/components/form";
+import { withProtected } from "../../src/hooks";
 
 const Add = () => {
 	return (
@@ -11,4 +12,4 @@ const Add = () => {
 	);
 };
 
-export default Add;
+export default withProtected(Add);

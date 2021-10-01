@@ -1,21 +1,18 @@
-import React, { useEffect } from "react";
-import { Header, TimeLine } from "../components/profile";
-import { BottomTabs, Seo } from "../shared";
+import React from "react";
+import { Header, TimeLine } from "../src/components/profile";
+import { BottomTabs, Seo } from "../src/shared";
 import { withProtected, useFirestore } from "../src/hooks";
 
 const HistoryPage = () => {
-	const { collections, getCollection } = useFirestore();
-
-	useEffect(() => {
-		collections.length === 0 && getCollection();
-	}, [collections, getCollection]);
+	const { collections, loading } = useFirestore();
 
 	return (
 		<>
 			<Seo title="History" />
 			<Header title="History" />
+			<div style={{ marginBottom: "80px" }}></div>
+			{!loading && collections !== null && <TimeLine days={collections} />}
 			<BottomTabs isPage="clipboard" />
-			<TimeLine days={collections} />
 		</>
 	);
 };

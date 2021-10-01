@@ -8,9 +8,9 @@ export const Wrapper = styled.section`
 
 export const ButtonWrapper = styled.div`
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
-	width: clamp(200px, 80%, 300px);
+	width: 280px;
 	margin-inline: auto;
 `;
 

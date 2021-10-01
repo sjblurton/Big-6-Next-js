@@ -9,16 +9,23 @@ export default function useFirestore() {
 }
 
 export function FirestoreProvider(props) {
-	const [loading, setLoading] = useState(false);
-	const [collections, setCollections] = useState([]);
+	const [loading, setLoading] = useState(true);
+	const [collections, setCollections] = useState(null);
 	const [error, setError] = useState("");
 	const { user } = useAuth();
+	const collectionService = { setLoading, user, setCollections, setError };
 
-	useEffect(() => {
-		if (!collections) {
-			FirestoreService.offLine;
+	useEffect(async () => {
+		if (collections === null) {
+			try {
+				setLoading(true);
+				await FirestoreService.offLine;
+				await FirestoreService.listenForData(collectionService);
+				setLoading(false);
+			} catch (error) {
+				setError(error.message);
+			}
 		}
-		FirestoreService.listenForData({ setLoading, user, setCollections });
 	}, []);
 
 	const value = { collections, error, loading };

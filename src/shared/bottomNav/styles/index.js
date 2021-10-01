@@ -22,6 +22,7 @@ export const ButtonContainer = styled.div`
 	align-items: center;
 	justify-content: space-around;
 	width: 100%;
+	max-width: 400px;
 	margin: 0 8px;
 `;
 

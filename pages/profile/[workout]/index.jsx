@@ -1,44 +1,18 @@
 import React, { useEffect, useReducer } from "react";
-import { workouts } from "../../../constants/workouts";
+import { svgSelector } from "../../../src/constants";
 import { useRouter } from "next/router";
 import { withProtected, useFirestore } from "../../../src/hooks";
-import { Seo } from "../../../shared";
+import { Seo } from "../../../src/shared";
 import { LineChart, Header, TimeLine } from "../../../src/components/profile";
-import BottomTabs from "../../../shared/bottomNav";
-
-const ACTIONS = {
-	WORKOUT_DATA_TO_STATE: "workout-data-to-state",
-};
-
-const reducer = (state, action) => {
-	switch (action.type) {
-		case ACTIONS.WORKOUT_DATA_TO_STATE:
-			const data = action.payload.collections.filter(
-				(item) => item.workout === state.filter
-			);
-			const lineChart = data.filter(
-				(item, _, arr) => item.level === arr[0].level
-			);
-			return {
-				...state,
-				data: data,
-				level: data[0].level,
-				lineChart: lineChart,
-				labels: lineChart.map((item) => item.date.toDate()).slice(0, 5),
-				reps: lineChart.map((item) => item.reps).slice(0, 5),
-				loading: false,
-			};
-
-		default:
-			return state;
-	}
-};
+import BottomTabs from "../../../src/shared/bottomNav";
+import { ACTIONS, workoutReducer } from "../../../src/reducers";
+import { collection } from "@firebase/firestore";
+import { SmallText } from "../../../src/components/profile/card/styles";
 
 const Workout = () => {
-	const { collections } = useFirestore();
+	const { collections, error, loading } = useFirestore();
 	const router = useRouter();
 	const { workout } = router.query;
-
 	const initialState = {
 		data: [],
 		filter: workout,
@@ -47,23 +21,25 @@ const Workout = () => {
 		labels: [],
 		reps: [],
 	};
-
-	const [state, dispatch] = useReducer(reducer, initialState);
+	const [state, dispatch] = useReducer(workoutReducer, initialState);
 	const { data, level, labels, reps } = state;
 
 	useEffect(() => {
-		dispatch({
-			type: ACTIONS.WORKOUT_DATA_TO_STATE,
-			payload: { collections },
-		});
+		if (collections !== null) {
+			dispatch({
+				type: ACTIONS.WORKOUT_DATA_TO_STATE,
+				payload: { collections },
+			});
+		}
 	}, [collections]);
 
 	return (
 		<>
 			<Seo title={workout} />
-			<Header title={workout} isBackIcon={true} svg={workouts[workout]} />
-			<LineChart repsArray={{ labels, reps, lastLevel: level }} />
-			<TimeLine days={data} />
+			<Header title={workout} isBackIcon={true} svg={svgSelector(workout)} />
+			{!loading && <LineChart repsArray={{ labels, reps, lastLevel: level }} />}
+			{!loading && <TimeLine days={data} />}
+			{error && <SmallText>{error}</SmallText>}
 			<BottomTabs />
 		</>
 	);

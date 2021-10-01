@@ -1,6 +1,6 @@
 import React from "react";
 import { TrashIcon } from "../../../../assets/icons";
-import { Progress } from "../../../../shared";
+import { Progress } from "../../../shared";
 import { Subtitle, TitleContainer, Title, LevelBall, Content } from "./styles";
 
 const HeaderTitle = ({ progressions, ago, reps, goal, setOpenModal }) => {
@@ -10,7 +10,7 @@ const HeaderTitle = ({ progressions, ago, reps, goal, setOpenModal }) => {
 				<Title>{progressions.name}</Title>
 				<Subtitle>{ago}</Subtitle>
 				<LevelBall>
-					<Subtitle>Lv: {progressions.level}</Subtitle>
+					<h3>Lv: {progressions.level}</h3>
 				</LevelBall>
 				<TrashIcon setOpenModal={setOpenModal} />
 			</TitleContainer>

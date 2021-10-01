@@ -1,5 +1,5 @@
 import React from "react";
-import { big6 } from "../../../../constants/workouts";
+import { big6 } from "../../../constants";
 import {
 	FormikControl,
 	CONTROLS,
@@ -7,6 +7,8 @@ import {
 	validationSchema,
 	FormikStepper,
 } from "..";
+
+const radioButtons = big6.slice(0, 6);
 
 const FormikContainer = () => {
 	return (
@@ -18,7 +20,7 @@ const FormikContainer = () => {
 				control={CONTROLS.EXERCISE_RADIO}
 				label="Exercise Radio"
 				name="exercise"
-				options={big6}
+				options={radioButtons}
 			/>
 			<FormikControl
 				control={CONTROLS.LEVEL_RADIO}

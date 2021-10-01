@@ -39,7 +39,7 @@ export const FirestoreService = {
 			}
 		});
 	},
-	listenForData: async ({ setLoading, user, setCollections }) => {
+	listenForData: async ({ setLoading, user, setCollections, setError }) => {
 		const db = getFirestore();
 		setLoading(true);
 		const q = query(
@@ -47,14 +47,26 @@ export const FirestoreService = {
 			orderBy("date", "desc"),
 			limit(72)
 		);
-		const unsubscribe = await onSnapshot(q, (querySnapshot) => {
-			const documents = [];
-			querySnapshot.forEach((doc) => {
-				documents.push({ docId: doc.id, ...doc.data() });
+		try {
+			const unsubscribe = await onSnapshot(q, (querySnapshot) => {
+				const documents = [];
+				querySnapshot.forEach((doc) => {
+					documents.push({ docId: doc.id, ...doc.data() });
+				});
+				setCollections(
+					documents || {
+						workout: "Pull Up",
+						date: Timestamp.fromDate(new Date()),
+						level: 1,
+						reps: [15, 12],
+						comments: "sample data, please log your first exercise.",
+					}
+				);
+				setLoading(false);
 			});
-			setCollections(documents);
-			setLoading(false);
-		});
+		} catch (error) {
+			setError(error.message);
+		}
 	},
 	removeDoc: async (user, docId) => {
 		const db = getFirestore();

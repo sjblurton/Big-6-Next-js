@@ -6,7 +6,7 @@ import {
 	ClipboardIcon,
 	HomeIcon,
 	WatchIcon,
-} from "../../assets/icons";
+} from "../../../assets/icons";
 import {
 	AddIconContainer,
 	ButtonContainer,

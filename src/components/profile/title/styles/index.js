@@ -27,6 +27,7 @@ export const Subtitle = styled.h2`
 `;
 
 export const LevelBall = styled.div`
+	${(props) => props.theme.text.button}
 	position: absolute;
 	display: flex;
 	justify-content: center;

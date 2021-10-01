@@ -18,11 +18,11 @@ const Dropdown = ({ setMenuOpen }) => {
 					{user && (
 						<>
 							<li onClick={() => router.push("/profile")}>Profile</li>
-							<li>History</li>
-							<li>Routine</li>
+							<li onClick={() => router.push("/history")}>History</li>
+							<li onClick={() => router.push("/routines")}>Routine</li>
 						</>
 					)}
-					<li>Timer</li>
+					<li onClick={() => router.push("/timer")}>Timer</li>
 					{user && <li onClick={() => logout()}>Logout</li>}
 					{!user && <li onClick={() => router.push("/")}>Log in</li>}
 				</ul>

@@ -1,20 +1,18 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.article`
+	position: relative;
 	background: ${(props) => props.theme.color.bgLight};
 	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
 	border-radius: 16px;
-	width: 335px;
+	width: clamp(280px, 100%, 335px);
 	height: 110px;
 	margin: 0 auto 16px auto;
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
 	padding: 8px;
 	cursor: pointer;
-	&:last-of-type {
-		margin-bottom: 80px;
-	}
 `;
 
 export const Title = styled.h3`
@@ -34,8 +32,11 @@ export const TextContainer = styled.div`
 `;
 
 export const SvgContainer = styled.div`
+	position: absolute;
 	width: 80px;
 	height: 80px;
+	left: 50%;
+	transform: translateX(-50%);
 	& svg {
 		width: 100%;
 		height: 100%;

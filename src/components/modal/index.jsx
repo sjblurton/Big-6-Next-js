@@ -1,9 +1,9 @@
 import React from "react";
-import { useAuth } from "../../src/hooks";
+import { useAuth } from "../../hooks";
 import { Button, ButtonContainer, Modal, Wrapper } from "./styles";
 import { Title } from "../profile/card/styles";
 import { format } from "date-fns";
-import { FirestoreService } from "../../src/service/firestoreService";
+import { FirestoreService } from "../../service/firestoreService";
 import { useRouter } from "next/router";
 
 const DeleteModal = ({ data, setOpenModal }) => {

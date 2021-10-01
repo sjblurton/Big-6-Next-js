@@ -5,7 +5,6 @@ export const Wrapper = styled.div`
 	inset: 0;
 	background: #000000b3;
 	z-index: 98;
-	cursor: pointer;
 `;
 
 export const Menu = styled.div`

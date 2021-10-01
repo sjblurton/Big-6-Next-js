@@ -1,8 +1,8 @@
 import React from "react";
 import { directions } from "../../../../data/directions";
 import { formatDistance } from "date-fns";
-import { Progress } from "../../../../shared";
-import { workouts } from "../../../../constants/workouts";
+import { Progress } from "../../../shared";
+import { svgSelector } from "../../../constants";
 import Link from "next/link";
 import {
 	SmallText,
@@ -28,7 +28,7 @@ const Card = ({ workout }) => {
 					<SmallText>Level: {level}</SmallText>
 					<SmallText>{ago}</SmallText>
 				</TextContainer>
-				<SvgContainer>{workouts[title]}</SvgContainer>
+				<SvgContainer>{svgSelector(title)}</SvgContainer>
 				<Progress goal={goalReps} reps={totalReps} />
 			</Wrapper>
 		</Link>

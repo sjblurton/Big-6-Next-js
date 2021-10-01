@@ -17,7 +17,7 @@ const Header = ({ title, isBackIcon, svg }) => {
 						<ArrowLeftIcon />
 					</Icon>
 					<Icon onClick={() => router.push("/")}>
-						<LogoSvg o />
+						<LogoSvg />
 					</Icon>
 				</IconContainer>
 			)}

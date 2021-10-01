@@ -1,5 +1,5 @@
 import { Card, Hero } from "../src/components/home";
-import { Seo } from "../shared";
+import { Seo } from "../src/shared";
 import { withPublic } from "../src/hooks";
 import { content } from "../src/components/home/card/content";
 
