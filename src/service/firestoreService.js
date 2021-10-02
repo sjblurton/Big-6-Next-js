@@ -1,39 +1,75 @@
 import {
-  getFirestore,
-  collection,
-  query,
-  orderBy,
-  limit,
-  where,
-  getDocs,
+	collection,
+	addDoc,
+	Timestamp,
+	getFirestore,
+	enableIndexedDbPersistence,
+	query,
+	orderBy,
+	limit,
+	onSnapshot,
+	deleteDoc,
+	doc,
 } from "firebase/firestore";
 
 export const FirestoreService = {
-  getCollection: async (user) => {
-    const db = getFirestore();
-    const q = query(
-      collection(db, user.uid),
-      orderBy("date", "desc"),
-      limit(72)
-    );
+	addDocs: async ({ auth, values }) => {
+		const db = getFirestore();
+		const colName = auth.user.uid;
+		const doc = {
+			workout: values.exercise,
+			date: Timestamp.fromDate(new Date(values.date)),
+			level: Number(values.level) + 1,
+			reps: values.reps,
+			comments: values.comments,
+		};
 
-    let collections = [];
-    try {
-      const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => {
-        collections.push({
-          docId: doc.id,
-          workout: doc.data().workout,
-          comments: doc.data().comment,
-          date: doc.data().date,
-          level: doc.data().level,
-          reps: doc.data().reps,
-        });
-      });
-
-      return { collections };
-    } catch (e) {
-      return { dataError: e.message };
-    }
-  },
+		const docRef = await addDoc(collection(db, colName), {
+			...doc,
+		});
+		return;
+	},
+	offLine: () => {
+		const db = getFirestore();
+		enableIndexedDbPersistence(db).catch((err) => {
+			if (err.code == "failed-precondition") {
+				console.log("failed-precondition");
+			} else if (err.code == "unimplemented") {
+				console.log("unimplemented");
+			}
+		});
+	},
+	listenForData: async ({ setLoading, user, setCollections, setError }) => {
+		const db = getFirestore();
+		setLoading(true);
+		const q = query(
+			collection(db, user.uid),
+			orderBy("date", "desc"),
+			limit(72)
+		);
+		try {
+			const unsubscribe = await onSnapshot(q, (querySnapshot) => {
+				const documents = [];
+				querySnapshot.forEach((doc) => {
+					documents.push({ docId: doc.id, ...doc.data() });
+				});
+				setCollections(
+					documents || {
+						workout: "Pull Up",
+						date: Timestamp.fromDate(new Date()),
+						level: 1,
+						reps: [15, 12],
+						comments: "sample data, please log your first exercise.",
+					}
+				);
+				setLoading(false);
+			});
+		} catch (error) {
+			setError(error.message);
+		}
+	},
+	removeDoc: async (user, docId) => {
+		const db = getFirestore();
+		await deleteDoc(doc(db, user, docId));
+	},
 };

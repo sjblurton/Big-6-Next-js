@@ -1,37 +1,34 @@
-import React, { createContext, useContext, useState } from "react";
-import { FirestoreService } from "../service/firestoreService";
-import { Timestamp } from "firebase/firestore";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import useAuth from "./auth";
+import { FirestoreService } from "../service/firestoreService";
 
 const firestoreContext = createContext();
 
 export default function useFirestore() {
-  return useContext(firestoreContext);
+	return useContext(firestoreContext);
 }
 
 export function FirestoreProvider(props) {
-  const [loading, setLoading] = useState(false);
-  const [collections, setCollections] = useState([]);
-  const [error, setError] = useState("");
-  const { user } = useAuth();
-  const emptyItem = {
-    workout: "Pull Ups",
-    date: Timestamp.now(),
-    level: 1,
-    reps: [2, 0],
-  };
+	const [loading, setLoading] = useState(true);
+	const [collections, setCollections] = useState(null);
+	const [error, setError] = useState("");
+	const { user } = useAuth();
+	const collectionService = { setLoading, user, setCollections, setError };
 
-  const getCollection = async () => {
-    setLoading(true);
-    const { dataError, collections } = await FirestoreService.getCollection(
-      user
-    );
-    setCollections(collections ?? [emptyItem]);
-    setError(dataError ?? "");
-    setLoading(false);
-  };
+	useEffect(async () => {
+		if (collections === null) {
+			try {
+				setLoading(true);
+				await FirestoreService.offLine;
+				await FirestoreService.listenForData(collectionService);
+				setLoading(false);
+			} catch (error) {
+				setError(error.message);
+			}
+		}
+	}, []);
 
-  const value = { collections, error, getCollection, loading };
+	const value = { collections, error, loading, setLoading };
 
-  return <firestoreContext.Provider value={value} {...props} />;
+	return <firestoreContext.Provider value={value} {...props} />;
 }

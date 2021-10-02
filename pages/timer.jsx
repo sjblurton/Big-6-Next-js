@@ -1,17 +1,17 @@
 import React from "react";
-import { Header } from "../components/profile";
-import Timer from "../components/timer";
-import { BottomTabs, Seo } from "../shared";
+import { Header } from "../src/components/profile";
+import Timer from "../src/components/timer";
+import { BottomTabs, Seo } from "../src/shared";
 
 const TimerPage = () => {
-  return (
-    <>
-      <Header title="Timer" />
-      <Seo title="Timer" />
-      <Timer />
-      <BottomTabs isPage="watch" />
-    </>
-  );
+	return (
+		<>
+			<Header title="Timer" />
+			<Seo title="Timer" />
+			<Timer />
+			<BottomTabs isPage="watch" />
+		</>
+	);
 };
 
 export default TimerPage;

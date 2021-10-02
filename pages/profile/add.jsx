@@ -1,12 +1,15 @@
 import React from "react";
-import { ExerciseForm } from "../../components/form";
+import { Seo } from "../../src/shared";
+import { FormikContainer } from "../../src/components/form";
+import { withProtected } from "../../src/hooks";
 
 const Add = () => {
-  return (
-    <div>
-      <ExerciseForm />
-    </div>
-  );
+	return (
+		<div>
+			<Seo title="Log a Exercise" />
+			<FormikContainer />
+		</div>
+	);
 };
 
-export default Add;
+export default withProtected(Add);
