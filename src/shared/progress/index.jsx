@@ -10,7 +10,8 @@ function Progress({ goal, reps }) {
 	function round5(x) {
 		return x % 5 >= 2.5 ? parseInt(x / 5) * 5 + 5 : parseInt(x / 5) * 5;
 	}
-	const dashOffsetTarget = round5((345 * ((100 - percent) / 100)).toFixed(1));
+	const dashOffsetTarget =
+		percent < 100 ? round5((345 * ((100 - percent) / 100)).toFixed(1)) : 0;
 
 	useEffect(() => {
 		timeout1Id.current = setInterval(() => {

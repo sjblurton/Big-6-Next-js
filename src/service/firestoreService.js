@@ -70,7 +70,6 @@ export const FirestoreService = {
 	},
 	removeDoc: async (user, docId) => {
 		const db = getFirestore();
-		console.log(db, user, docId);
 		await deleteDoc(doc(db, user, docId));
 	},
 };

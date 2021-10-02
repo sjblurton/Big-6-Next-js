@@ -1,7 +1,6 @@
-import React, { useEffect, useReducer } from "react";
+import React from "react";
 import { EastIcon, WestIcon } from "../../../assets/icons";
-import { ACTIONS, directionsReducer } from "../../reducers/";
-import { directions } from "../../../data/directions";
+import { ACTIONS } from "../../reducers/";
 import Card from "./card";
 import {
 	Wrapper,
@@ -12,23 +11,12 @@ import {
 	ButtonWrapper,
 	ProgressionText,
 } from "./styles";
-import { useRouter } from "next/router";
 
 const standards = ["Beginner", "Intermediate", "Progression"];
 
-const DirectionData = () => {
-	const router = useRouter();
-	const { query } = router;
-	const initialState = {
-		data: directions[query.workout][query.level],
-		workout: query.workout,
-		level: query.level,
-	};
-
-	const [state, dispatch] = useReducer(directionsReducer, initialState);
-
+const DirectionData = ({ reduce }) => {
+	const [state, dispatch] = reduce;
 	const { data, workout } = state;
-
 	const {
 		name,
 		directions: instructions,
@@ -37,13 +25,6 @@ const DirectionData = () => {
 		images,
 		level,
 	} = data;
-
-	useEffect(() => {
-		router.push(
-			`/directions?workout=${state.workout}&level=${state.level}&name=${state.data.name}`
-		);
-	}, [state]);
-
 	const renderProgressions = () => {
 		return progressions.map((progress, i) => {
 			return (

@@ -12,18 +12,11 @@ import {
 } from "./styles";
 import LogoSvg from "../../../../assets/logos/logo";
 import GoogleLogin from "../loginButton";
+import { arrayOfExercises } from "../../../constants";
 
 const Hero = ({ auth, data }) => {
 	const renderList = () => {
-		const workouts = [
-			"Pull Ups",
-			"Push Ups",
-			"Squats",
-			"Leg Raises",
-			"Handstand Push Ups",
-			"Bridges",
-		];
-		return workouts.map((workout, i) => (
+		return arrayOfExercises.map((workout, i) => (
 			<Link
 				key={i}
 				href={`/directions?workout=${workout}&level=0&name=${data[i].level[0]}`}

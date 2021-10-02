@@ -28,7 +28,7 @@ export function FirestoreProvider(props) {
 		}
 	}, []);
 
-	const value = { collections, error, loading };
+	const value = { collections, error, loading, setLoading };
 
 	return <firestoreContext.Provider value={value} {...props} />;
 }

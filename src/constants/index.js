@@ -20,3 +20,5 @@ export const big6 = [
 	{ key: "Bridges", value: <Bridge /> },
 	{ key: "Rest", value: <Rest /> },
 ];
+
+export const arrayOfExercises = big6.map((item) => item.key).slice(0, 6);

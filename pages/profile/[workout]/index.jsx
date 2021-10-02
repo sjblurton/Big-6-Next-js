@@ -6,7 +6,6 @@ import { Seo } from "../../../src/shared";
 import { LineChart, Header, TimeLine } from "../../../src/components/profile";
 import BottomTabs from "../../../src/shared/bottomNav";
 import { ACTIONS, workoutReducer } from "../../../src/reducers";
-import { collection } from "@firebase/firestore";
 import { SmallText } from "../../../src/components/profile/card/styles";
 
 const Workout = () => {
@@ -25,7 +24,7 @@ const Workout = () => {
 	const { data, level, labels, reps } = state;
 
 	useEffect(() => {
-		if (collections !== null) {
+		if (collections !== null && !loading) {
 			dispatch({
 				type: ACTIONS.WORKOUT_DATA_TO_STATE,
 				payload: { collections },

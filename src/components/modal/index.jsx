@@ -1,5 +1,5 @@
 import React from "react";
-import { useAuth } from "../../hooks";
+import { useAuth, useFirestore } from "../../hooks";
 import { Button, ButtonContainer, Modal, Wrapper } from "./styles";
 import { Title } from "../profile/card/styles";
 import { format } from "date-fns";
@@ -7,19 +7,22 @@ import { FirestoreService } from "../../service/firestoreService";
 import { useRouter } from "next/router";
 
 const DeleteModal = ({ data, setOpenModal }) => {
+	const { setLoading, loading } = useFirestore();
 	const { user } = useAuth();
 	const router = useRouter();
-	console.log(router);
 	const stopBubble = (e) => {
 		e.stopPropagation();
 	};
-	const d = format(new Date(data.date.toDate()), "do MMMM, Y") || "";
+	const d =
+		format(new Date(data?.date?.toDate() || new Date()), "do MMMM, Y") || "";
 
 	const handleDelete = async (e) => {
 		e.preventDefault();
-		router.push("/profile");
+		setLoading(true);
 		await FirestoreService.removeDoc(user.uid, data.docId);
 		setOpenModal(false);
+		router.push("/profile");
+		setLoading(false);
 	};
 
 	return (
@@ -41,10 +44,14 @@ const DeleteModal = ({ data, setOpenModal }) => {
 				</ul>
 
 				<ButtonContainer>
-					<Button onClick={() => setOpenModal(false)} type="button">
+					<Button
+						disabled={loading}
+						onClick={() => setOpenModal(false)}
+						type="button"
+					>
 						cancel
 					</Button>
-					<Button onClick={handleDelete} type="button">
+					<Button disabled={loading} onClick={handleDelete} type="button">
 						delete
 					</Button>
 				</ButtonContainer>

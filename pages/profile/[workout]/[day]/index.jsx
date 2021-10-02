@@ -32,7 +32,7 @@ const Day = () => {
 	const { data, progressions, ago, goal, totalReps } = state;
 
 	useEffect(() => {
-		if (collections !== null) {
+		if (collections.length > 0 && !loading) {
 			dispatch({
 				type: ACTIONS.DAY_DATA_TO_STATE,
 				payload: { collections },

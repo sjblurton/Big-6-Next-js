@@ -6,6 +6,11 @@ import { Wrapper, Menu } from "./styles";
 const Dropdown = ({ setMenuOpen }) => {
 	const router = useRouter();
 	const { logout, user } = useAuth();
+	const handleLogout = () => {
+		setMenuOpen(false);
+		logout();
+		router.push("/");
+	};
 
 	const stopBubble = (e) => {
 		e.stopPropagation();
@@ -23,7 +28,7 @@ const Dropdown = ({ setMenuOpen }) => {
 						</>
 					)}
 					<li onClick={() => router.push("/timer")}>Timer</li>
-					{user && <li onClick={() => logout()}>Logout</li>}
+					{user && <li onClick={handleLogout}>Logout</li>}
 					{!user && <li onClick={() => router.push("/")}>Log in</li>}
 				</ul>
 			</Menu>
