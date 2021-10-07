@@ -9,7 +9,6 @@ import BottomTabs from "../../src/shared/bottomNav";
 const Profile = () => {
 	const [latest, setLatest] = useState([]);
 	const { collections, error, loading } = useFirestore();
-
 	const latestList = () => {
 		let array = [];
 		const upToDate = collections?.filter((value) => {

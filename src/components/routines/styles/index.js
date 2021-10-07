@@ -4,6 +4,8 @@ export const Wrapper = styled.section`
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 80px;
+	min-height: 100vh;
+	justify-content: space-evenly;
 `;
 
 export const ButtonWrapper = styled.div`

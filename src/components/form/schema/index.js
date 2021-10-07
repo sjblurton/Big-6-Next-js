@@ -29,8 +29,8 @@ export const validationSchema = object({
 
 export const initialValues = {
 	exercise: "",
-	level: undefined,
-	reps: [undefined],
+	level: "",
+	reps: [""],
 	date: new Date(),
 	comments: "",
 };

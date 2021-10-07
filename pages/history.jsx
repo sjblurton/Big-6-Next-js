@@ -10,8 +10,8 @@ const HistoryPage = () => {
 		<>
 			<Seo title="History" />
 			<Header title="History" />
-			<div style={{ marginBottom: "80px" }}></div>
 			{!loading && collections !== null && <TimeLine days={collections} />}
+			<div style={{ marginBottom: "80px" }}></div>
 			<BottomTabs isPage="clipboard" />
 		</>
 	);
