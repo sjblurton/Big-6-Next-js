@@ -6,18 +6,16 @@ import { Wrapper, Menu } from "./styles";
 const Dropdown = ({ setMenuOpen }) => {
 	const router = useRouter();
 	const { logout, user } = useAuth();
-	const handleLogout = () => {
+	const handleLogout = (e) => {
+		e.stopPropagation();
 		setMenuOpen(false);
 		logout();
 		router.push("/");
 	};
 
-	const stopBubble = (e) => {
-		e.stopPropagation();
-	};
 	return (
 		<Wrapper onClick={() => setMenuOpen(false)} name="wrapper">
-			<Menu onClick={stopBubble}>
+			<Menu>
 				<ul>
 					{!user && <li onClick={() => router.push("/")}>Home</li>}
 					{user && (

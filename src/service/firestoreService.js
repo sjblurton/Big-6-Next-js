@@ -10,6 +10,7 @@ import {
 	onSnapshot,
 	deleteDoc,
 	doc,
+	setDoc,
 } from "firebase/firestore";
 
 export const FirestoreService = {
@@ -71,5 +72,13 @@ export const FirestoreService = {
 	removeDoc: async (user, docId) => {
 		const db = getFirestore();
 		await deleteDoc(doc(db, user, docId));
+	},
+	createCollection: async (user) => {
+		const db = getFirestore();
+		await setDoc(doc(db, user.uid, "user"), {
+			name: user.displayName,
+			email: user.email,
+			image: user.photoURL,
+		});
 	},
 };

@@ -60,7 +60,7 @@ const Seo = ({ description, title }) => {
 				sizes="512x512"
 			/>
 			<link rel="manifest" href="/manifest.json" />
-			<link rel="shortcut icon" href="/favicon.ico" />
+			<link rel="shortcut icon" href="/iconx/favicon.ico" />
 			<meta name="application-name" content="&nbsp;" />
 			<meta name="msapplication-TileColor" content="#34425D" />
 		</Head>
