@@ -14,7 +14,7 @@ export const theme = {
 		h1: {
 			fontStyle: "normal",
 			fontWeight: "bold",
-			fontSize: "64px",
+			fontSize: "clamp(32px, 4vw + 1rem, 64px)",
 			lineHeight: "70px",
 			letterSpacing: "-0.02em",
 			textTransform: "capitalize",
@@ -22,7 +22,7 @@ export const theme = {
 		h2: {
 			fontStyle: "normal",
 			fontWeight: "bold",
-			fontSize: "32px",
+			fontSize: "clamp(24px, 2vw + 1rem, 32px)",
 			lineHeight: "47px",
 			letterSpacing: "-0.02em",
 			textTransform: "capitalize",
@@ -30,7 +30,7 @@ export const theme = {
 		h3: {
 			fontStyle: "normal",
 			fontWeight: "bold",
-			fontSize: "24px",
+			fontSize: "clamp(16px, 2vw + 1rem, 24px)",
 			lineHeight: "28px",
 			letterSpacing: "-0.02em",
 			textTransform: "capitalize",

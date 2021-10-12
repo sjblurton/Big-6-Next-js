@@ -6,6 +6,7 @@ export const Wrapper = styled.nav`
 	bottom: 0;
 	left: 0;
 	right: 0;
+	height: 50px;
 	background: ${(props) => props.theme.color.bgLight};
 	display: flex;
 	justify-content: center;
@@ -36,8 +37,8 @@ export const IconContainer = styled.div`
 `;
 export const AddIconContainer = styled.div`
 	margin: 6px;
-	width: 60px;
-	height: 60px;
+	width: 46px;
+	height: 46px;
 	background: ${(props) => props.theme.color.linear};
 	border-radius: 45%;
 	display: flex;
