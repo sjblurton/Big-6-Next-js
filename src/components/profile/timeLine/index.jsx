@@ -32,8 +32,7 @@ const TimeLine = ({ days }) => {
 
 						<p>
 							{router.route === "/history" &&
-								`${directions[workout][level - 1].name}
-                  , `}
+								`${directions[workout][level - 1].name}`}
 							{`Lv ${level}, ${reps.reduce((acc, num) => acc + num, 0)} reps`}
 						</p>
 					</TextContainer>

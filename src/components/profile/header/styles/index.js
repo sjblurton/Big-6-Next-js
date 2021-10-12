@@ -11,14 +11,12 @@ export const Wrapper = styled.div`
 	margin-bottom: 16px;
 `;
 export const Title = styled.h1`
-	${(props) => props.theme.text.h2}
+	${(props) => props.theme.text.h1}
 	z-index: 2;
 	align-self: ${(props) => (props?.isBackIcon ? "flex-start" : "center")};
-	margin-top: 8px;
 `;
 export const IconContainer = styled.div`
 	display: flex;
-	flex-direction: column;
 	width: auto;
 	height: 100%;
 	justify-content: space-evenly;

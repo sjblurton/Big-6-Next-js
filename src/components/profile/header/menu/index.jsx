@@ -26,6 +26,7 @@ const Dropdown = ({ setMenuOpen }) => {
 						</>
 					)}
 					<li onClick={() => router.push("/timer")}>Timer</li>
+					<li onClick={() => router.push(`/directions`)}>Manual</li>
 					{user && <li onClick={handleLogout}>Logout</li>}
 					{!user && <li onClick={() => router.push("/")}>Log in</li>}
 				</ul>

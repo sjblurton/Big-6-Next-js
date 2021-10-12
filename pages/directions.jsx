@@ -11,9 +11,9 @@ const Directions = () => {
 	const router = useRouter();
 	const { query } = router;
 	const initialState = {
-		data: directions[query.workout][query.level],
-		workout: query.workout,
-		level: query.level,
+		data: directions[query.workout || "Squats"][query.level || 0],
+		workout: query.workout || "Squats",
+		level: query.level || 0,
 	};
 
 	const [state, dispatch] = useReducer(directionsReducer, initialState);
@@ -25,14 +25,16 @@ const Directions = () => {
 		);
 	}, [state]);
 
-	const workoutSvg = big6.filter((item) => item.key === query.workout)[0].value;
+	const workoutSvg = big6.filter(
+		(item) => item.key === query.workout || "Squats"
+	)[0].value;
 
 	return (
 		<>
-			<Seo title={query.name} />
+			<Seo title={data.name} />
 			<Header
 				reduce={[state, dispatch]}
-				title={query.workout}
+				title={query.workout || "Squats"}
 				isBackIcon={true}
 				svg={workoutSvg}
 			/>

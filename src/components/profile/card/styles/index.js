@@ -5,7 +5,7 @@ export const Wrapper = styled.article`
 	background: ${(props) => props.theme.color.bgLight};
 	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
 	border-radius: 16px;
-	width: clamp(280px, 100%, 335px);
+	width: clamp(275px, 95%, 335px);
 	height: 110px;
 	margin: 0 auto 16px auto;
 	display: flex;
@@ -35,8 +35,7 @@ export const SvgContainer = styled.div`
 	position: absolute;
 	width: 80px;
 	height: 80px;
-	left: 50%;
-	transform: translateX(-50%);
+	right: 120px;
 	& svg {
 		width: 100%;
 		height: 100%;

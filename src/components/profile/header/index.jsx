@@ -21,14 +21,13 @@ const Header = ({ title, isBackIcon, svg }) => {
 					<Icon onClick={handleBack}>
 						<ArrowLeftIcon />
 					</Icon>
-					<Icon onClick={() => router.push("/")}>
+					<Icon>
 						<LogoSvg />
 					</Icon>
 				</IconContainer>
 			)}
 			{!isBackIcon && <LogoSvg />}
 			<Title isBackIcon={isBackIcon}>{title}</Title>
-			{svg && <WorkoutSvg>{svg}</WorkoutSvg>}
 			<DotsMenu setMenuOpen={setMenuOpen} />
 		</Wrapper>
 	);
