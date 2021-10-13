@@ -21,7 +21,8 @@ export const Title = styled.h3`
 
 export const SmallText = styled.p`
 	${(props) => props.theme.text.small}
-	color: ${(props) => props.theme.color.accent}
+	color: ${(props) => props.theme.color.accent};
+	z-index: 1;
 `;
 
 export const TextContainer = styled.div`
@@ -29,6 +30,7 @@ export const TextContainer = styled.div`
 	flex-direction: column;
 	justify-content: space-around;
 	height: 90%;
+	z-index: 1;
 `;
 
 export const SvgContainer = styled.div`
@@ -36,6 +38,7 @@ export const SvgContainer = styled.div`
 	width: 80px;
 	height: 80px;
 	right: 120px;
+	z-index: 0;
 	& svg {
 		width: 100%;
 		height: 100%;

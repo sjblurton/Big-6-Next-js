@@ -15,7 +15,7 @@ export const theme = {
 			fontStyle: "normal",
 			fontWeight: "bold",
 			fontSize: "clamp(32px, 4vw + 1rem, 64px)",
-			lineHeight: "70px",
+			lineHeight: "clamp(36px, 4vw, 70px)",
 			letterSpacing: "-0.02em",
 			textTransform: "capitalize",
 		},

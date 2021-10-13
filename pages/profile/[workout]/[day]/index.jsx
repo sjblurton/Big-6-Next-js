@@ -41,7 +41,7 @@ const Day = () => {
 	}, [collections]);
 
 	return (
-		<>
+		<div style={{ minHeight: "100vh", paddingBottom: "50px" }}>
 			<Seo
 				title={`${data.workout}, Level: ${data.level}, for ${data.reps?.reduce(
 					(acc, reps) => acc + reps,
@@ -69,7 +69,7 @@ const Day = () => {
 			)}
 			{error && <SmallText>{error}</SmallText>}
 			<BottomTabs />
-		</>
+		</div>
 	);
 };
 
