@@ -34,8 +34,7 @@ export const LevelBall = styled.div`
 	align-items: center;
 	width: 60px;
 	height: 60px;
-	right: 0;
-	top: -60px;
+	bottom: -80px;
 	border-radius: 50%;
 	background: ${(props) => props.theme.color.linear};
 	box-shadow: 2.2px 2.2px 2.2px 2.2px rgba(14, 14, 44, 0.15);
