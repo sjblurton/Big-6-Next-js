@@ -1,34 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![logo](https://github.com/sjblurton/Big-6-Next-js/tree/main/assets/readme/logo.png)
 
-## Getting Started
+# Big 6
 
-First, run the development server:
+> Big 6 Progressive calisthenics
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+Big 6 Progressive calisthenics fitness app, is based on a book by Paul Wade, called Convict Conditioning. It's a great book and a training routine I've been following for a while now. I needed a way to track my progress. So i built this app in order to help me master the one arm handstand push-up!
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Screenshots
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+> Mobile
+> ![Mobile-Hero-Screenshot](https://github.com/sjblurton/Big-6-Next-js/tree/main/assets/readme/Android.png)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+> ![Mobile-Form-Screenshot](https://github.com/sjblurton/Big-6-Next-js/tree/main/assets/readme/form.png)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Getting started
 
-## Learn More
+link to the live site... https://big-6-next-js.vercel.app
 
-To learn more about Next.js, take a look at the following resources:
+## Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Next.js
+- Firebase Auth
+- Firebase Firestore
+- PWA, working offline
+- Styled Components
+- Formik
+- Yup form validation
+- Fully responsive, Mobile first.
+- SVG art work
+- Figma design
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Links
 
-## Deploy on Vercel
+- Project homepage: https://big-6-next-js.vercel.app
+- Repository: https://github.com/sjblurton/Big-6-Next-js
+- Figma: https://www.figma.com/file/2bjSoKqP1rj1mDrlMOTuWp/The-Big-6-Calisthenics?node-id=7%3A11
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Licensing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+"The code in this project is is all my own work and Copyrighted to Simon Blurton."
