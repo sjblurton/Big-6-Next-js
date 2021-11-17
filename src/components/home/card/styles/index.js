@@ -47,6 +47,7 @@ export const Content = styled.div`
 	flex-direction: column;
 	justify-content: space-between;
 	flex: 65%;
+	padding: 12px;
 `;
 
 export const Title = styled.h3`

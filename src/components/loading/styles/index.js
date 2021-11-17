@@ -8,7 +8,8 @@ export const Wrapper = styled.div`
 	right: 0;
 	background-color: ${(props) => props.theme.color.bgDark};
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	padding: 10%;
+	padding: 0;
 `;

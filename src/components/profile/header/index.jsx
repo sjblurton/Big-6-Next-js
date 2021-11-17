@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { ArrowLeftIcon, DotsMenu } from "../../../../assets/icons";
 import LogoSvg from "../../../../assets/logos/logo";
-import { IconContainer, Title, Wrapper, WorkoutSvg, Icon } from "./styles";
+import { IconContainer, Title, Wrapper, Icon } from "./styles";
 import Dropdown from "./menu";
 
 const Header = ({ title, isBackIcon, svg }) => {

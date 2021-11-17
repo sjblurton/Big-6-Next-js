@@ -11,7 +11,7 @@ const Profile = () => {
 	const { collections, error, loading } = useFirestore();
 	const latestList = () => {
 		let array = [];
-		const upToDate = collections?.filter((value) => {
+		const upToDate = collections?.filter((value) => {loading
 			if (!array.includes(value.workout)) {
 				array.push(value.workout);
 				return true;

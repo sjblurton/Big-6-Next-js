@@ -33,21 +33,7 @@ export const IconContainer = styled.div`
 		}
 	}
 `;
-export const WorkoutSvg = styled.div`
-	position: absolute;
-	width: 80px;
-	height: 80px;
-	bottom: 0;
-	display: flex;
-	justify-content: center;
-	align-items: flex-end;
-	margin-bottom: 8px;
 
-	& svg {
-		max-width: 80px;
-		max-height: 80px;
-	}
-`;
 export const Icon = styled.div`
 	width: 100%;
 	cursor: pointer;

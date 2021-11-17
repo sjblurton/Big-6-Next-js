@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 export const Menu = styled.div`
 	position: fixed;
 	z-index: 99;
-	right: 16px;
+	right: 10%;
 	top: 90px;
 	width: 200px;
 	height: fit-content;
