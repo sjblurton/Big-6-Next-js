@@ -23,7 +23,7 @@ export const FirestoreService = {
       level: Number(values.level) + 1,
       reps: values.reps,
       comments: values.comments,
-      uid: user.uid,
+      uid: colName,
     };
 
     const docRef = await addDoc(collection(db, colName), {
