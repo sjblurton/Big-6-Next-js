@@ -7,14 +7,13 @@ export const Wrapper = styled.article`
   border-radius: 16px;
   width: clamp(275px, 95%, 335px);
   height: 110px;
-  margin: 0 auto 16px auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 8px;
   cursor: pointer;
-  &:first-of-type {
-    margin-top: 92px;
+  &:last-of-type {
+    margin-bottom: 66px;
   }
 `;
 
