@@ -8,7 +8,6 @@ Big 6 Progressive calisthenics fitness app, is based on a book by Paul Wade, cal
 
 ## Screenshots
 
-> Mobile
 > ![Mobile-Hero-Screenshot](https://github.com/sjblurton/Big-6-Next-js/blob/main/assets/readme/Android.png)
 
 > ![Mobile-Form-Screenshot](https://github.com/sjblurton/Big-6-Next-js/blob/main/assets/readme/form.png)
