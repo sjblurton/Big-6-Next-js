@@ -6,6 +6,10 @@
 
 Big 6 Progressive calisthenics fitness app, is based on a book by Paul Wade, called Convict Conditioning. It's a great book and a training routine I've been following for a while now. I needed a way to track my progress. So i built this app in order to help me master the one arm handstand push-up!
 
+## Demo
+
+> ![screen-gif](https://github.com/sjblurton/Big-6-Next-js/blob/main/assets/readme/demo.giff)
+
 ## Screenshots
 
 > ![Mobile-Hero-Screenshot](https://github.com/sjblurton/Big-6-Next-js/blob/main/assets/readme/Android.png)

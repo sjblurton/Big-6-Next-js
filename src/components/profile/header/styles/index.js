@@ -22,7 +22,7 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: space-evenly;
   padding: 8px 0;
-  z-index: 999;
+  z-index: 101;
 `;
 export const Title = styled.h1`
   ${(props) => props.theme.text.h1}
