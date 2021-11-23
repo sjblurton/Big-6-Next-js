@@ -11,13 +11,14 @@ import {
   deleteDoc,
   doc,
   setDoc,
+  updateDoc,
 } from "firebase/firestore";
 
 export const FirestoreService = {
   addDocs: async ({ auth, values }) => {
     const db = getFirestore();
     const colName = auth.user.uid;
-    const doc = {
+    const updatedDoc = {
       workout: values.exercise,
       date: Timestamp.fromDate(new Date(values.date)),
       level: Number(values.level) + 1,
@@ -27,7 +28,25 @@ export const FirestoreService = {
     };
 
     const docRef = await addDoc(collection(db, colName), {
-      ...doc,
+      ...updatedDoc,
+    });
+    return;
+  },
+  onEdit: async ({ auth, values }) => {
+    const db = getFirestore();
+    const colName = auth.user.uid;
+    const updatedDoc = {
+      workout: values.exercise,
+      date: Timestamp.fromDate(new Date(values.date)),
+      level: Number(values.level),
+      reps: values.reps,
+      comments: values.comments,
+      uid: colName,
+    };
+
+    const docRef = await doc(db, colName, values.docId);
+    await updateDoc(docRef, {
+      ...updatedDoc,
     });
     return;
   },

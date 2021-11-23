@@ -10,3 +10,4 @@ export { default as InfoIcon } from "./infoIcon";
 export { default as EastIcon } from "./east";
 export { default as WestIcon } from "./west";
 export { default as TrashIcon } from "./trash";
+export { default as EditIcon } from "./edit";

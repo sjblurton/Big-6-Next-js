@@ -1,5 +1,5 @@
 import React from "react";
-import { TrashIcon } from "../../../../assets/icons";
+import { EditIcon, TrashIcon } from "../../../../assets/icons";
 import { Progress } from "../../../shared";
 import {
   Subtitle,
@@ -9,8 +9,10 @@ import {
   Content,
   IconContainer,
 } from "./styles";
+import { useRouter } from "next/router";
 
 const HeaderTitle = ({ progressions, ago, reps, goal, setOpenModal }) => {
+  const router = useRouter();
   return (
     <Content>
       <TitleContainer>
@@ -21,6 +23,7 @@ const HeaderTitle = ({ progressions, ago, reps, goal, setOpenModal }) => {
             <h3>Lv: {progressions.level}</h3>
           </LevelBall>
           <TrashIcon setOpenModal={setOpenModal} />
+          <EditIcon docId={router.query.day} />
         </IconContainer>
       </TitleContainer>
       <Progress goal={goal} reps={reps} />

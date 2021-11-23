@@ -35,5 +35,4 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  z-index: 1000;
 `;
