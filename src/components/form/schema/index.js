@@ -2,7 +2,11 @@ import { object, string, number, array, date } from "yup";
 import { FirestoreService } from "../../../service/firestoreService";
 
 export const validationSchema = object({
-  exercise: string().required("Required."),
+  exercise: string()
+    .matches(/(Pull Ups|Push Ups|Squats|Leg Raises|Handstands|Bridges)/, {
+      excludeEmptyString: true,
+    })
+    .required("Required."),
   level: number("Numbers only.")
     .nullable(true)
     .required("Required.")
