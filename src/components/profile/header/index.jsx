@@ -10,9 +10,14 @@ const Header = ({ title, isBackIcon }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const router = useRouter();
   const { scrollDown } = useScroll();
+  console.log(router);
 
   const handleBack = () => {
-    router.back();
+    if (router.pathname === "/directions") {
+      router.push(`./profile/${router.query.workout}`);
+    } else {
+      router.back();
+    }
   };
 
   return (
