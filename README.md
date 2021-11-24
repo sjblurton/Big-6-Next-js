@@ -24,7 +24,7 @@ link to the live site... https://big-6-next-js.vercel.app
 
 - Next.js
 - Firebase Auth
-- Firebase Firestore
+- Firebase Firestore (Read, write, edit, and delete)
 - PWA, working offline
 - Styled Components
 - Formik
