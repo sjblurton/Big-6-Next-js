@@ -7,28 +7,12 @@ import { withProtected, useFirestore } from "../../src/hooks";
 import BottomTabs from "../../src/shared/bottomNav";
 
 const Profile = () => {
-<<<<<<< HEAD
-	const [latest, setLatest] = useState([]);
-	const { collections, error, loading } = useFirestore();
-	const latestList = () => {
-		let array = [];
-		const upToDate = collections?.filter((value) => {loading
-			if (!array.includes(value.workout)) {
-				array.push(value.workout);
-				return true;
-			}
-			return false;
-		});
-		setLatest(upToDate);
-	};
-=======
   const [latest, setLatest] = useState([]);
   const { collections, error, loading } = useFirestore();
->>>>>>> 0857ea77f724915dbd4fa4d09c0d7956c23ed1d2
-
   const latestList = () => {
     let array = [];
     const upToDate = collections?.filter((value) => {
+      loading;
       if (!array.includes(value.workout)) {
         array.push(value.workout);
         return true;
