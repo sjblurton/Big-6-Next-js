@@ -4,33 +4,40 @@ import { ArrowLeftIcon, DotsMenu } from "../../../../assets/icons";
 import LogoSvg from "../../../../assets/logos/logo";
 import { IconContainer, Title, Wrapper, Icon } from "./styles";
 import Dropdown from "./menu";
+import { useScroll } from "../../../hooks";
 
-const Header = ({ title, isBackIcon, svg }) => {
-	const [menuOpen, setMenuOpen] = useState(false);
-	const router = useRouter();
+const Header = ({ title, isBackIcon }) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const router = useRouter();
+  const { scrollDown } = useScroll();
+  console.log(router);
 
-	const handleBack = () => {
-		router.back();
-	};
+  const handleBack = () => {
+    if (router.pathname === "/directions") {
+      router.push(`./profile/${router.query.workout}`);
+    } else {
+      router.back();
+    }
+  };
 
-	return (
-		<Wrapper>
-			{menuOpen && <Dropdown setMenuOpen={setMenuOpen} />}
-			{isBackIcon && (
-				<IconContainer>
-					<Icon onClick={handleBack}>
-						<ArrowLeftIcon />
-					</Icon>
-					<Icon>
-						<LogoSvg />
-					</Icon>
-				</IconContainer>
-			)}
-			{!isBackIcon && <LogoSvg />}
-			<Title isBackIcon={isBackIcon}>{title}</Title>
-			<DotsMenu setMenuOpen={setMenuOpen} />
-		</Wrapper>
-	);
+  return (
+    <Wrapper scrollDown={scrollDown}>
+      {menuOpen && <Dropdown setMenuOpen={setMenuOpen} />}
+      {isBackIcon && (
+        <IconContainer>
+          <Icon onClick={handleBack}>
+            <ArrowLeftIcon />
+          </Icon>
+          <Icon>
+            <LogoSvg />
+          </Icon>
+        </IconContainer>
+      )}
+      {!isBackIcon && <LogoSvg />}
+      <Title isBackIcon={isBackIcon}>{title}</Title>
+      <DotsMenu setMenuOpen={setMenuOpen} />
+    </Wrapper>
+  );
 };
 
 export default Header;

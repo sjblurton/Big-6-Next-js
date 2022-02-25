@@ -6,10 +6,13 @@
 
 Big 6 Progressive calisthenics fitness app, is based on a book by Paul Wade, called Convict Conditioning. It's a great book and a training routine I've been following for a while now. I needed a way to track my progress. So i built this app in order to help me master the one arm handstand push-up!
 
+## Demo
+
+> ![screen-gif](https://github.com/sjblurton/Big-6-Next-js/blob/main/assets/readme/demo.gif)
+
 ## Screenshots
 
-> Mobile
-> ![Mobile-Hero-Screenshot](https://github.com/sjblurton/Big-6-Next-js/blob/main/assets/readme/Android.png
+> ![Mobile-Hero-Screenshot](https://github.com/sjblurton/Big-6-Next-js/blob/main/assets/readme/Android.png)
 
 > ![Mobile-Form-Screenshot](https://github.com/sjblurton/Big-6-Next-js/blob/main/assets/readme/form.png)
 
@@ -21,7 +24,7 @@ link to the live site... https://big-6-next-js.vercel.app
 
 - Next.js
 - Firebase Auth
-- Firebase Firestore
+- Firebase Firestore (Read, write, edit, and delete)
 - PWA, working offline
 - Styled Components
 - Formik
