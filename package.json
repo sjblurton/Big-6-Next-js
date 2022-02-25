@@ -1,35 +1,35 @@
 {
-	"name": "firebase-test",
-	"version": "0.1.0",
-	"private": true,
-	"scripts": {
-		"dev": "next dev",
-		"build": "next build",
-		"start": "next start",
-		"lint": "next lint",
-		"export": "next export"
-	},
-	"dependencies": {
-		"chart.js": "^3.5.1",
-		"date-fns": "^2.23.0",
-		"firebase": "^9.0.1",
-		"formik": "^2.2.9",
-		"next": "10",
-		"next-pwa": "^5.3.1",
-		"react": "^17.0.2",
-		"react-chartjs-2": "^3.0.4",
-		"react-content-loader": "^6.0.3",
-		"react-datepicker": "^4.2.1",
-		"react-dom": "^17.0.2",
-		"react-select": "^4.3.1",
-		"styled-components": "^5.3.1",
-		"yup": "^0.32.9"
-	},
-	"devDependencies": {
-		"babel-plugin-styled-components": "^1.13.2",
-		"eslint": "7.32.0",
-		"eslint-config-next": "10",
-		"i": "^0.3.6",
-		"webpack": "^5.56.0"
-	}
+  "name": "firebase-test",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "export": "next export"
+  },
+  "dependencies": {
+    "chart.js": "^3.5.1",
+    "date-fns": "^2.23.0",
+    "firebase": "^9.0.1",
+    "formik": "^2.2.9",
+    "next": "12.1.0",
+    "next-pwa": "^5.3.1",
+    "react": "^17.0.2",
+    "react-chartjs-2": "^3.0.4",
+    "react-content-loader": "^6.0.3",
+    "react-datepicker": "^4.2.1",
+    "react-dom": "^17.0.2",
+    "react-select": "^4.3.1",
+    "styled-components": "^5.3.1",
+    "yup": "^0.32.9"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.13.2",
+    "eslint": "7.32.0",
+    "eslint-config-next": "10",
+    "i": "^0.3.6",
+    "webpack": "^5.56.0"
+  }
 }
