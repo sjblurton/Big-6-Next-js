@@ -41,4 +41,4 @@ link to the live site... https://big-6-next-js.vercel.app
 
 ## Licensing
 
-"The code in this project is is all my own work and Copyrighted to Simon Blurton."
+MIT Open source
